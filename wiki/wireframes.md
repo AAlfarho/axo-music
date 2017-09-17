@@ -82,7 +82,7 @@
 ### Current user profile friends section
 + `/users/:userId/friends` - user profile by clicking on the current user link in the nav bar.
 
-![user-profile-friends](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20friends.png)
+![user-profile-friends](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20Friend.png)
 
 ### Other user profile friends section
 + `/users/:userId` - Follow buttons now appear.
