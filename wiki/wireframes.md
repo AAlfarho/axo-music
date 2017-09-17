@@ -65,7 +65,21 @@
 
 ![search-song](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Search%20-%20Track.png)
 
+### Search Form and results for songs.
++ `/search/` - search for a specific user.
+
+![search-user](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Search%20-%20user.png)
+
 ---
 
-### User Search
-![user-search](https://raw.githubusercontent.com/appacademy/bluebird/master/wiki/bluebird_user_search.png)
+## User Profile
+
+### Current user profile playlists section
++ `/users/:userId` - user profile by clicking on the current user link in the nav bar.
+
+![user-profile](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20playlists.png)
+
+### Current user profile friends section
++ `/users/:userId` - user profile by clicking on the current user link in the nav bar.
+
+![user-profile](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20friends.png)
