@@ -37,7 +37,8 @@
 + `/signup`
 + `/collection/playlists` - homepage, collection of user playlists.
 + `/users/:userId` - user profile
-+ `/user/:userID/playlists/playlist/:playlistID` - show a specific playlist.
++ `/user/:userID/playlists/:playlistID` - show a specific playlist.
++ `/user/:userID/playlists/` - show all playlists for specific user.
 + `/playlist/new` - create new playlist.
 + `/playlist/:playlistID/edit` - edit a playlist.
 + `/search/` - search for a specific user, song or playlist.

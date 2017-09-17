@@ -75,11 +75,16 @@
 ## User Profile
 
 ### Current user profile playlists section
-+ `/users/:userId` - user profile by clicking on the current user link in the nav bar.
++ `/users/:userId/` - user profile by clicking on the current user link in the nav bar.
 
-![user-profile](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20playlists.png)
+![user-profile-playlist](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20playlists.png)
 
 ### Current user profile friends section
-+ `/users/:userId` - user profile by clicking on the current user link in the nav bar.
++ `/users/:userId/friends` - user profile by clicking on the current user link in the nav bar.
 
-![user-profile](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20friends.png)
+![user-profile-friends](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/User%20profile%20-%20friends.png)
+
+### Other user profile friends section
++ `/users/:userId` - Follow buttons now appear.
+
+![other-user-profile](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Other%20friend%20profile%20-%20playlists%20%E2%80%93%201.png)
