@@ -1,6 +1,6 @@
 # MVP List
 
-<App name>, a spotify clone, is a social music application that allows user to create playlists, follow other users and share their own playlists.
+Macuilfy, a Spotify clone, is a social music application that allows user to create playlists, follow other users and share their own playlists.
 
 
 

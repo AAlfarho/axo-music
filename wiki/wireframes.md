@@ -1,24 +1,71 @@
 # Wireframes
 
-## Session Form
-![session-form](https://raw.githubusercontent.com/appacademy/bluebird/master/wiki/bluebird_session_page.png)
+### Splash Screen
++ `/`
+
+![splash-screen](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Splash.png)
+
+### Login Form
++ `/login`
+
+![login-form](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Login.png)
+
+### Sign Up Form
++ `/signup`
+
+![signup-form](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Sing%20up.png)
 
 ---
 
-## Dashboard / Profile
-![dashboard](https://raw.githubusercontent.com/appacademy/bluebird/master/wiki/bluebird_dashboard_page.png)
+### Main Layout
+![main-screen](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Main%20Components.png)
+
+---
+## Playlists
+
+### Initial screen, playlist display
++ `/collection/playlists` - homepage, collection of user playlists.
+
+![collection-playlists](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Playlist%20Index.png)
+
+### New Playlist
++ After clicking on `New Playlist` button.
+
+![new-playlist](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Playlist%20New.png)
+
+### Show Playlist
++ `/user/:userID/playlists/playlist/:playlistID` - show a specific playlist after clicking on the playlist name.
+
+![show-playlist](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Show%20Playlist.png)
+
+### Update Playlist name
++ `/playlist/:playlistID/edit` - edit a playlist.
+
+![update-playlist-name](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Update%20Playlist%20Name.png)
+
+### Update Playlist songs
+
+![update-playlist-song](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Update%20Playlist%20Song.png)
+
+### Add song to playlist
+
+![add-playlist-song](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Update%20Playlist%20%E2%80%93%20Add%20song.png)
 
 ---
 
-## Chirp Show
-![chirp-show](https://raw.githubusercontent.com/appacademy/bluebird/master/wiki/bluebird_show_chirp_page.png)
+## Search
+
+### Search Form and results for playlists.
++ `/search/` - search for a specific playlist.
+
+![search-playlist](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Search%20-%20Playlist.png)
+
+### Search Form and results for songs.
++ `/search/` - search for a specific playlist.
+
+![search-song](https://raw.githubusercontent.com/AAlfarho/macuilfy/master/wiki/wireframes/Search%20-%20Track.png)
 
 ---
 
-## Chirp Form
-![chirp-form](https://raw.githubusercontent.com/appacademy/bluebird/master/wiki/bluebird_chirp_form_page.png)
-
----
-
-## User Search
+### User Search
 ![user-search](https://raw.githubusercontent.com/appacademy/bluebird/master/wiki/bluebird_user_search.png)
