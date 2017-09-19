@@ -27,8 +27,7 @@
         title: 'Primitive',
         artist: 'Real Estate',
         file_path: '/some_path/where/we/can/find/the/song.mp3'
-      },
-      all_ids: [15,43,234,33]
+      }
     },
     playlists: {
       1: {
@@ -57,23 +56,25 @@
         song_ids: [43]
         current_user_follows: true,
         current_user_owns: false,
-      },
-      all_ids: [1,2,3]
+      }
     },
     users: {
       2: {
         id: 2,
         username: "friend_1",
         img_url: "/some_path/where/we/can/find/the/user/avatar",
-        current_user_follows: true
+        current_user_follows: true,
+        friend_ids: [], //load on a need basis
+        playlists_ids: [] //load on a need basis
       }
       3: {
         id: 3,
         username: "friend_2",
         img_url: "/some_path/where/we/can/find/the/user/avatar",
-        current_user_follows: true
-      },
-      all_ids: [2,3]
+        current_user_follows: true,
+        friend_ids: [], //load on a need basis
+        playlists_ids: [] //load on a need basis
+      }
     }
   },
   ui: {
@@ -89,6 +90,7 @@
       id: 57,
       username: "alfaro",
       img_url: "/some_path/where/we/can/find/the/user/avatar",
+      friend_ids: [2,3],
       playlists_ids : [1,2,3]
     }
   },

@@ -1,6 +1,6 @@
 # MVP List
 
-Macuilfy, a Spotify clone, is a social music application that allows user to create playlists, follow other users and share their own playlists.
+AxoMusic, a Spotify clone, is a social music application that allows user to create playlists, follow other users and share their own playlists.
 
 
 
