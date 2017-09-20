@@ -145,22 +145,6 @@ h3 {
   text-decoration: none;
 }
 
-
-/*https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/*/
-.align-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.align-item {
-  max-width: 50%;
-}
-
-.align-item--top {
-  align-self: flex-start;
-}
-
-.align-item--bottom {
-  align-self: flex-end;
+input:focus {
+  border: 3px solid #1db954;
 }
