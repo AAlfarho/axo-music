@@ -28,10 +28,11 @@ class SessionForm extends React.Component {
   handleDemoLogin(event){
     event.preventDefault();
     //not sure if this is the proper way of doing this.
-    this.setState({
+    const demoUser = {
       username: 'guest',
       password: 'password'
-    }, () => this.handleSubmit(event));
+    };
+    this.props.demoLogin(demoUser);
 
   }
 
@@ -81,13 +82,34 @@ class SessionForm extends React.Component {
                     }
                     <input type='password' value={password} onChange={this.handleChange('password')} placeholder="Password"/>
                     <input className="btn btn-green btn-xl" type="submit" value={submitButtonText}/>
-                    {
-                      !signupFlow &&
-                      <button onClick={this.handleDemoLogin}className="btn btn-xl btn-white" data-or="or">
-                          Demo Login
-                        </button>
-                    }
+                    <button onClick={this.handleDemoLogin}
+                            className="btn btn-xl btn-white" data-or="or">
+                        Demo Login
+                      </button>
                   </form>
+                  <div>
+                    {
+                        signupFlow ?
+                        <div>
+                          <p>
+                            Already have an account?
+                          </p>
+                          <Link className="green-link" to="/login">
+                            Log in
+                          </Link>
+                        </div>
+                        :
+                        <div>
+                          <p>
+                            Don't have an account?
+                          </p>
+                          <Link className="green-link" to="/signup">
+                            Sign Up
+                          </Link>
+                        </div>
+                    }
+
+                  </div>
                   {this.renderErrors()}
                 </div>
               </div>
