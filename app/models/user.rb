@@ -3,11 +3,11 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  username        :string
-#  email           :string
+#  username        :string           not null
+#  email           :string           not null
 #  img_url         :string
-#  password_digest :string
-#  session_token   :string
+#  password_digest :string           not null
+#  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -17,6 +17,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token, :lowercase_username
+
+  has_many :authored_playlists,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :Playlist
 
   attr_reader :password
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920201142) do
+ActiveRecord::Schema.define(version: 20170920205104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170920201142) do
     t.integer "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "release_yr", null: false
     t.index ["artist_id"], name: "index_albums_on_artist_id"
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170920201142) do
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_artists_on_name", unique: true
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -71,7 +73,6 @@ ActiveRecord::Schema.define(version: 20170920201142) do
     t.integer "length", null: false
     t.boolean "explicit", default: false
     t.string "img_url"
-    t.integer "release_yr", null: false
     t.integer "artist_id", null: false
     t.integer "album_id", null: false
     t.datetime "created_at", null: false
