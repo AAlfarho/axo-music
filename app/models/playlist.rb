@@ -10,7 +10,7 @@
 #
 
 class Playlist < ApplicationRecord
-  valdiates :name, :author_id, presence: true
+  validates :name, :author_id, presence: true
 
   belongs_to :author,
   primary_key: :id,
