@@ -12,10 +12,19 @@ class SessionForm extends React.Component {
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
+  componentDidMount(){
+    this.props.receiveErrors([]);
+  }
+
   componentWillReceiveProps(newProps){
     //if the new props include the user logged in, redirect to root
     if(newProps.loggedIn){
       this.props.history.push("/");
+    }
+
+    if(newProps.location.pathname !== this.props.location.pathname){
+      //if different url, clear the errors
+      this.props.receiveErrors([]);
     }
   }
 
@@ -42,13 +51,15 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+      <div className="error-container">
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
@@ -72,6 +83,7 @@ class SessionForm extends React.Component {
                   <div className="separator-line"></div>
                 </div>
                 <div className="session-container">
+                  {this.renderErrors()}
                   <form className="session-form"onSubmit={this.handleSubmit}>
                     <input type="text" placeholder='Username' value={username}
                       onChange={this.handleChange('username')}/>
@@ -110,7 +122,6 @@ class SessionForm extends React.Component {
                     }
 
                   </div>
-                  {this.renderErrors()}
                 </div>
               </div>
             </div>
