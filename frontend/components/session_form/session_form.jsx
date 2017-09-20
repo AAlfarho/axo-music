@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props){
     super(props);
@@ -62,7 +62,9 @@ class SessionForm extends React.Component {
             <div className="display-options">
               <div className="left-most-options">
                 <div className="extra-small-logo">
-                  <img alt="" src="https://open.scdn.co/static/images/logo-white-2x.png"/>
+                  <Link to="/">
+                    <img alt="" src="https://open.scdn.co/static/images/logo-white-2x.png"/>
+                  </Link>
                 </div>
                 <div className="separator-container">
                   <div className="separator-line"></div>
@@ -78,7 +80,7 @@ class SessionForm extends React.Component {
                         onChange={this.handleChange('email')}/>
                     }
                     <input type='password' value={password} onChange={this.handleChange('password')} placeholder="Password"/>
-                    <input className="btn-xl btn-green"type="submit" value={submitButtonText}/>
+                    <input className="btn btn-green btn-xl" type="submit" value={submitButtonText}/>
                     {
                       !signupFlow &&
                       <button onClick={this.handleDemoLogin}className="btn btn-xl btn-white" data-or="or">

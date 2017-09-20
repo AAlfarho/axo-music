@@ -13,7 +13,8 @@ const mapDispacthToProps = (dispatch, {location}) => {
 
   return {
     formType,
-    formAction: (user) => dispatch(formAction(user))
+    formAction: (user) => dispatch(formAction(user)),
+    demoLogin: (user) => dispatch(login(user))
   };
 };
 

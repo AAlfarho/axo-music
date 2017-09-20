@@ -51,6 +51,7 @@ body {
 
 .extra-small-logo img{
   width: 20%;
+  padding-top: 25px;
 }
 .hero-image {
   background: black;
@@ -75,6 +76,10 @@ body {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px
+}
+
+.btn {
+  cursor: pointer;
 }
 
 .btn-green, .btn-green a:visited {
