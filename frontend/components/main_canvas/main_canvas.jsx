@@ -9,6 +9,7 @@ export default class MainCanvas extends React.Component {
       return(
         <div>
           <h1>Main Container</h1>
+          <h2>Welcome {this.props.currentUser.username}</h2>
           <button onClick={()=> this.props.logout()}>Temp logout</button>
         </div>
       );
