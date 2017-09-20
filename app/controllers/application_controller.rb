@@ -33,4 +33,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def unauthorized_action
+    render json: ["Unauthorized action"], status: 401 unless logged_in?
+  end
+
 end
