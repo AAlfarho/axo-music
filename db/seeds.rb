@@ -8,3 +8,4 @@
 
 User.destroy_all
 User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password')
+User.create(username: 'Guest', email: 'guest@example.com', password: 'password')

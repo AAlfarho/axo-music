@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentWillReceiveProps(newProps){
@@ -22,6 +23,16 @@ class SessionForm extends React.Component {
     event.preventDefault();
     const user = this.state;
     this.props.formAction(user);
+  }
+
+  handleDemoLogin(event){
+    event.preventDefault();
+    //not sure if this is the proper way of doing this.
+    this.setState({
+      username: 'guest',
+      password: 'password'
+    }, () => this.handleSubmit(event));
+
   }
 
   handleChange(field){
@@ -70,7 +81,7 @@ class SessionForm extends React.Component {
                     <input className="btn-xl btn-green"type="submit" value={submitButtonText}/>
                     {
                       !signupFlow &&
-                      <button className="btn btn-xl btn-white" data-or="or">
+                      <button onClick={this.handleDemoLogin}className="btn btn-xl btn-white" data-or="or">
                           Demo Login
                         </button>
                     }
