@@ -20,7 +20,8 @@ class Playlist < ApplicationRecord
   has_many :playlist_song_memberships,
   primary_key: :id,
   foreign_key: :playlist_id,
-  class_name: :PlaylistSong
+  class_name: :PlaylistSong,
+  dependent: :destroy
 
   has_many :songs,
   through: :playlist_song_memberships,
