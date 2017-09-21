@@ -14,9 +14,9 @@
 *= require_self
 *= require splash
 *= require session_form
+*= require main_canvas
 */
 
-$max-z-index-val: 1000;
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -147,4 +147,20 @@ h3 {
 
 input:focus {
   border: 3px solid #1db954;
+}
+
+///http://bl.ocks.org/jfsiii/5380802
+html, body, .viewport {
+   height: 100%;
+   margin: 0;
+ }
+
+ .vbox {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .hbox {
+  display: flex;
+  flex-direction: row;
 }

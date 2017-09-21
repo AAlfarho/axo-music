@@ -1,0 +1,25 @@
+.main-container {
+
+}
+.main-section-flex-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-bar-flex-item {
+  flex: 1;
+  background-color: #0f0d0f;
+  width: 220px;
+}
+
+.main-playground-flex-item {
+  flex: 6;
+  background: linear-gradient(#4e454e, #090809); /* Standard syntax */
+}
+
+.media-player-flex-item {
+  height: 90px;
+  background-color: #282828;
+}

@@ -12,7 +12,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import MainCanvasContainer from './main_canvas/main_canvas_container';
 
 const App = () =>(
-  <div>
+  <div className="vbox viewport">
     <Switch>
       <ProtectedRoute exact path="/" component={MainCanvasContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />

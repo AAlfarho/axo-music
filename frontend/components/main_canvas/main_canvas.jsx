@@ -7,10 +7,18 @@ export default class MainCanvas extends React.Component {
 
     render(){
       return(
-        <div>
-          <h1>Main Container</h1>
-          <h2>Welcome {this.props.currentUser.username}</h2>
-          <button onClick={()=> this.props.logout()}>Temp logout</button>
+        <div className="vbox viewport main-container">
+          <section className="main-section-flex-container">
+            <nav className="nav-bar-flex-item">
+              Side nav bar
+            </nav>
+            <article className="main-playground-flex-item">
+              main display component
+            </article>
+          </section>
+          <footer className="media-player-flex-item">
+            media player
+          </footer>
         </div>
       );
     }
