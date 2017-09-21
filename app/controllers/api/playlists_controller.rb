@@ -24,9 +24,9 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update
-    @playlist = Playlist.find(params[:id])
+    @playlist = current_user.authored_playlists.find(params[:id])
     if @playlist.update(playlist_params)
-      @playlist.song_ids = eval(params['playlist']['song_ids'])
+      @playlist.song_ids = params['playlist']['song_ids'].map(&:to_i)
       render :show
     else
       render json: @playlist.errors.full_messages, status: 422
@@ -34,7 +34,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def destroy
-    @playlist = Playlist.find(params[:id])
+    @playlist = current_user.authored_playlists.find(params[:id])
     @playlist.destroy
     render :show
   end

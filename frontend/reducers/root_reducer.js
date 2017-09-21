@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import errorsReducer from './errors_reducer';
 import sessionReducer from './session_reducer';
+import playlistReducer from './playlists_reducer';
 
 export default combineReducers({
   errors: errorsReducer,
-  session: sessionReducer
+  session: sessionReducer,
+  playlists: playlistReducer
 });
