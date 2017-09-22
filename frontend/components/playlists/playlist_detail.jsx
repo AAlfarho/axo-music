@@ -5,6 +5,7 @@ export default class PlaylistIndex extends React.Component{
   constructor(props){
     super(props);
     this.handlePlaylistUserFetching = this.handlePlaylistUserFetching.bind(this);
+    this.handleDeleteSong = this.handleDeleteSong.bind(this);
   }
 
   componentDidMount(){
@@ -24,6 +25,15 @@ export default class PlaylistIndex extends React.Component{
       this.props.fetchPlaylists(propsToUse.match.params.playlistId);
     }
   }
+  handleDeleteSong(e){
+    const songIds = this.props.playlist.song_ids;
+    const indexToDelete = songIds.indexOf(parseInt(e.target.value));
+    if(indexToDelete !== -1){
+      songIds.splice(indexToDelete, 1);
+      this.props.updatePlaylist(this.props.playlist);
+    }
+
+  }
 
   render(){
     const {playlist, songs} = this.props;
@@ -41,6 +51,7 @@ export default class PlaylistIndex extends React.Component{
                     <li>{song.length}</li>
                     <li>{song.artist_name}</li>
                     <li>{song.album_name}</li>
+                    <button value={song.id} onClick={this.handleDeleteSong}> Delete</button>
                   </ul>
                 </li>
               ))
