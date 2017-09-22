@@ -2,7 +2,11 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 import {logout} from '../../actions/session_actions.js';
-import {fetchPlaylists, fetchPlaylist} from '../../actions/playlist_actions.js';
+import {
+  fetchPlaylists,
+  fetchPlaylist,
+  createPlaylist,
+} from '../../actions/playlist_actions.js';
 import PlaylistIndex from './playlist_index';
 
 const mapStateToProps = (state, ownProps) => {
@@ -29,7 +33,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispacthToProps = (dispatch) => ({
   fetchPlaylists: () => dispatch(fetchPlaylists()),
-  fetchPlaylist: (id) => dispatch(fetchPlaylist(id))
+  fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
+  createPlaylist: (playlist) => dispatch(createPlaylist(playlist))
 });
 
 export default withRouter(

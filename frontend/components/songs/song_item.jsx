@@ -30,6 +30,7 @@ export default class SongItem extends React.Component{
     };
   }
 
+
   toggleModal(field){
     return (e) => {
       debugger;
