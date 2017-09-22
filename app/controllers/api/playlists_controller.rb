@@ -24,9 +24,16 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update
+    debugger;
     @playlist = current_user.authored_playlists.find(params[:id])
     if @playlist.update(playlist_params)
-      @playlist.song_ids = params['playlist']['song_ids'].map(&:to_i)
+      ids = params['playlist']['song_ids'];
+      if ids.length == 1 && ids.first == ""
+        ids = []
+      else
+        ids.map!(&:to_i)
+      end
+      @playlist.song_ids = ids
       render :show
     else
       render json: @playlist.errors.full_messages, status: 422

@@ -64,8 +64,12 @@ export default class SongItem extends React.Component{
     if(this.props.collectionType === PLAYLIST_COLLECTION){
       const songIds = this.props.collection.song_ids;
       const indexToDelete = songIds.indexOf(this.props.song.id);
+      debugger;
       if(indexToDelete !== -1){
         songIds.splice(indexToDelete, 1);
+        if(songIds.length === 0){
+          songIds.push("");
+        }
         this.props.updatePlaylist(this.props.collection);
       }
     }
