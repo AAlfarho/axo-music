@@ -10,13 +10,10 @@ const SongsReducer = (state = {}, action) => {
   let nextState = {};
   switch (action.type) {
     case RECEIVE_PLAYLISTS:
-      debugger;
       return merge({}, state, action.playlists.songs_detail);
     case RECEIVE_PLAYLIST:
-      debugger;
       return merge({}, state, action.playlist.songs_detail);
     case REMOVE_PLAYLIST:
-      debugger;
       return state;
     default:
       return state;

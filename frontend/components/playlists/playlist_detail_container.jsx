@@ -3,21 +3,33 @@ import {withRouter} from 'react-router-dom';
 
 import {logout} from '../../actions/session_actions.js';
 import {fetchPlaylists, fetchPlaylist} from '../../actions/playlist_actions.js';
-import PlaylistIndex from './playlist_index';
+import PlaylistDetail from './playlist_detail';
 
 const mapStateToProps = (state, ownProps) => {
-  let playlist = {};
+  let playlist = state.playlists[ownProps.match.params.playlistId];
   let songs = {};
+  if(playlist){
+    playlist.song_ids.forEach(id => {
+      if(state.songs[id]){
+        songs[id] = state.songs[id];
+      }
+    });
+  } else {
+    playlist = {};
+  }
 
 
-  return { };
+  return {
+    playlist,
+    songs
+  };
+
 };
 
 const mapDispacthToProps = (dispatch) => ({
-  fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id))
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispacthToProps)(PlaylistIndex)
+  connect(mapStateToProps, mapDispacthToProps)(PlaylistDetail)
 );
