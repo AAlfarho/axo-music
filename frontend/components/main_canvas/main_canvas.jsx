@@ -1,8 +1,13 @@
 import React from 'react';
+import NavBarContainer from '../nav_bar/nav_bar_container';
+import MainPlayground from '../main_playground/main_playground';
 
 export default class MainCanvas extends React.Component {
     constructor(props){
       super(props);
+    }
+    componentDidMount(){
+      this.props.history.push('/collection/playlists');
     }
 
     render(){
@@ -10,10 +15,10 @@ export default class MainCanvas extends React.Component {
         <div className="vbox viewport main-container">
           <section className="main-section-flex-container">
             <nav className="nav-bar-flex-item">
-              Side nav bar
+              <NavBarContainer />
             </nav>
             <article className="main-playground-flex-item">
-              main display component
+              <MainPlayground />
             </article>
           </section>
           <footer className="media-player-flex-item">

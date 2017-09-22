@@ -14,10 +14,10 @@ import MainCanvasContainer from './main_canvas/main_canvas_container';
 const App = () =>(
   <div className="vbox viewport">
     <Switch>
-      <ProtectedRoute exact path="/" component={MainCanvasContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <AuthRoute path="/splash" component={SplashContainer} />
+      <ProtectedRoute path="/" component={MainCanvasContainer} />
     </Switch>
   </div>
 );
