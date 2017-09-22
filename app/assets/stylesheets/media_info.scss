@@ -1,0 +1,38 @@
+.media-info-flex-container {
+  height: 250px;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.media-info-image-container {
+  align-content: center;
+  justify-content: center;
+}
+.media-info-image-container img {
+  margin: 0 auto;
+  max-width: 85%;
+  max-height: 85%;
+}
+
+.media-info-footer {
+  margin-top: 35px;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: end;
+  align-self: center;
+}
+.media-info-link {
+
+}
+
+.media-info-link a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.media-info-author {
+  color: grey;
+}
