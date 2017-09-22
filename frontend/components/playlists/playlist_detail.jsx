@@ -1,37 +1,24 @@
 import React from 'react';
 import MediaInfoItem from '../media_info/media_info_item';
+import SongIndexContainer from '../songs/song_index_container';
+import {PLAYLIST_COLLECTION} from '../../util/constants';
 
 export default class PlaylistIndex extends React.Component{
   constructor(props){
     super(props);
-    this.handlePlaylistUserFetching = this.handlePlaylistUserFetching.bind(this);
-    this.handleDeleteSong = this.handleDeleteSong.bind(this);
   }
 
   componentDidMount(){
-    // const {userId, currentUser} = this.props;
-    // if(userId === currentUser.id){
-    //   this.props.fetchPlaylists();
-    // }
+    this.props.fetchPlaylist(this.props.match.params.playlistId);
   }
 
   componentWillReceiveProps(newProps){
-    //this.handlePlaylistUserFetching(newProps);
-  }
+    const currId = this.props.match.params.playlistId;
+    const newId = newProps.match.params.playlistId;
+    if(currId && newId && currId !== newId){
+      this.props.fetchPlaylist(newProps.match.params.playlistId);
+    }
 
-  handlePlaylistUserFetching(propsToUse){
-    const {playlist} = propsToUse;
-    if(!playlist){
-      this.props.fetchPlaylists(propsToUse.match.params.playlistId);
-    }
-  }
-  handleDeleteSong(e){
-    const songIds = this.props.playlist.song_ids;
-    const indexToDelete = songIds.indexOf(parseInt(e.target.value));
-    if(indexToDelete !== -1){
-      songIds.splice(indexToDelete, 1);
-      this.props.updatePlaylist(this.props.playlist);
-    }
 
   }
 
@@ -39,24 +26,15 @@ export default class PlaylistIndex extends React.Component{
     const {playlist, songs} = this.props;
     return(
       <div style={{padding: '30px'}}>
+        helllo h ello hello
         <MediaInfoItem img_url={playlist.image_url} media_name={playlist.name}
-              media_author={playlist.author_id}
-              detail_url={`/user/${playlist.author_id}/playlist/${playlist.id}`}/>
-            <ol>
-            {
-              Object.values(songs).map(song => (
-                <li>
-                  {song.title}
-                  <ul>
-                    <li>{song.length}</li>
-                    <li>{song.artist_name}</li>
-                    <li>{song.album_name}</li>
-                    <button value={song.id} onClick={this.handleDeleteSong}> Delete</button>
-                  </ul>
-                </li>
-              ))
-            }
-          </ol>
+            media_author={playlist.author_id}
+            detail_url={`/user/${playlist.author_id}/playlist/${playlist.id}`}/>
+          <SongIndexContainer
+            collectionType={PLAYLIST_COLLECTION}
+            collection={playlist}
+            songs={Object.values(songs)}
+            />
       </div>
 
     );
