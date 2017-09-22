@@ -4,7 +4,7 @@ import PlaylistIndexContainer from '../playlists/playlist_index_container.jsx';
 import PlaylistDetailContainer from '../playlists/playlist_detail_container.jsx';
 
 const MainPlayground = () => (
-  <div>
+  <div className="vbox viewport">
     <ProtectedRoute path="/collection/playlists" component={PlaylistIndexContainer} />
     <ProtectedRoute path="/user/:userId/playlist/:playlistId" component={PlaylistDetailContainer} />
   </div>

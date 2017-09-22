@@ -1,0 +1,45 @@
+.playlist-index-container {
+  border: 1px solid red;
+  padding: 15px;
+}
+
+.header-container {
+  height: 15%;
+  border: 1px solid white;
+  min-height: 35px;
+  padding-right: 15px;
+  align-items: flex-start;
+}
+
+.collection-playlists-header {
+  align-self: center;
+  margin: 0 auto;
+  color: #929597;
+}
+.new-playlist-container {
+  flex: 1;
+  align-self: flex-end;
+}
+
+.new-playlist-btn-container {
+  align-self: center;
+}
+
+.btn-new-pl {
+  width: 200px;
+  height: 40px;
+  font-size: larger;
+}
+
+
+.collection-playlist-container {
+  padding: 10px;
+  border: 1px solid white;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.playlist-media-info-item {
+  padding: 10px;
+  border: 1px solid white;
+}
