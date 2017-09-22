@@ -26,9 +26,8 @@ export default class PlaylistIndex extends React.Component{
     const {playlist, songs} = this.props;
     return(
       <div style={{padding: '30px'}}>
-        helllo h ello hello
         <MediaInfoItem img_url={playlist.image_url} media_name={playlist.name}
-            media_author={playlist.author_id}
+            media_author={playlist.author_id} media_author_name={playlist.author_name}
             detail_url={`/user/${playlist.author_id}/playlist/${playlist.id}`}/>
           <SongIndexContainer
             collectionType={PLAYLIST_COLLECTION}

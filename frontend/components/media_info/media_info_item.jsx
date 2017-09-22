@@ -5,7 +5,7 @@ const MediaInfoItem = (props) => (
   <div>
     <div>{props.image_url}</div>
     <Link to={props.detail_url}>{props.media_name}</Link>
-    <div>{props.media_author}</div>
+    <div> By: {props.media_author_name}</div>
   </div>
 );
 

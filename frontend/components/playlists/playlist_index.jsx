@@ -31,7 +31,7 @@ export default class PlaylistIndex extends React.Component{
         {
           this.props.playlists.map(playlist => (
             <MediaInfoItem img_url={playlist.image_url} media_name={playlist.name}
-              media_author={playlist.author_id} detail_url={`/user/${this.props.userId}/playlist/${playlist.id}`}/>
+              media_author={playlist.author_id} media_author_name={playlist.author_name} detail_url={`/user/${this.props.userId}/playlist/${playlist.id}`}/>
           ))
         }
       </div>

@@ -19,6 +19,8 @@
   flex: 6;
   // background: linear-gradient(#4e454e, #090809); /* Standard syntax */
   border: 1px solid black;
+  //for scroll action
+  overflow-y: auto;
 }
 
 .media-player-flex-item {
