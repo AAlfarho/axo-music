@@ -1,6 +1,7 @@
 import React from 'react';
 import {PLAYLIST_COLLECTION} from '../../util/constants';
 import Modal from 'react-modal';
+import AddToPlaylistCont from '../playlists/add_to_playlist_container';
 
 const songOptionsModal = {
   overlay: {
@@ -92,7 +93,7 @@ export default class SongItem extends React.Component{
         onRequestClose = {this.toggleAddSongModal}
         style={songOptionsModal}
         >
-        This component will render the current users playlsits
+        <AddToPlaylistCont song_id={this.props.song.id}/>
       </Modal>
     );
   }
