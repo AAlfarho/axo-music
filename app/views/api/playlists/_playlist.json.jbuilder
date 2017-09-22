@@ -1,6 +1,7 @@
 json.playlist_detail do
   json.set! playlist.id do
     json.extract! playlist, :id, :name, :author_id
+    json.author_name playlist.author.username
     json.song_ids playlist.songs.pluck(:id)
   end
 end
