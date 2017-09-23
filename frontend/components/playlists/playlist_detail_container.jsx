@@ -5,7 +5,8 @@ import {logout} from '../../actions/session_actions.js';
 import {
   fetchPlaylists,
   fetchPlaylist,
-  updatePlaylist
+  updatePlaylist,
+  deletePlaylist
 } from '../../actions/playlist_actions.js';
 import PlaylistDetail from './playlist_detail';
 
@@ -32,7 +33,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispacthToProps = (dispatch) => ({
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
-  updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist))
+  updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
+  deletePlaylist: (id) => dispatch(deletePlaylist(id))
 });
 
 export default withRouter(

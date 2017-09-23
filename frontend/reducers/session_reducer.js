@@ -20,7 +20,7 @@ const SessionReducer = (state = _nullUser, action) => {
     return nextState;
     case REMOVE_PLAYLIST:
     let newState = merge({}, state);
-    const playlistToDelete = action.playlist[parseInt(Object.keys(action.playlist)[0])];
+    const playlistToDelete = action.playlist.playlist_detail[parseInt(Object.keys(action.playlist.playlist_detail)[0])];
     const index = state.currentUser.playlists_ids.indexOf(playlistToDelete.id);
     if(index !== -1){
       newState.currentUser.playlists_ids.splice(index, 1);

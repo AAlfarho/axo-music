@@ -31,6 +31,13 @@
   font-size: larger;
 }
 
+.btn-owner-actions-pl {
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  font-size: larger;
+}
+
 
 .collection-playlist-container {
   padding: 10px 10px 10px 10px;
@@ -56,8 +63,13 @@
 
 .playlist-media-info-container {
   padding: 50px;
+  align-items: center;
 }
 
 .playlist-song-index-container {
   width: 80%
+}
+
+.playlist-owner-actions {
+  margin-top: 30px;
 }

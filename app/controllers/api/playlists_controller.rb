@@ -24,11 +24,10 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update
-    debugger;
     @playlist = current_user.authored_playlists.find(params[:id])
     if @playlist.update(playlist_params)
       ids = params['playlist']['song_ids'];
-      if ids.length == 1 && ids.first == ""
+      if !ids || ids.length == 1 && ids.first == ""
         ids = []
       else
         ids.map!(&:to_i)

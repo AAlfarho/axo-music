@@ -2,20 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import MediaInfoItem from '../media_info/media_info_item';
 import NewPlaylist from '../playlists/new_playlist';
-
-const newPLaylistModal = {
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)'
-  },
-  content : {
-    top                   : '40%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
+import {formPLaylistModal}  from '../modal/modal_styles';
 
 export default class PlaylistIndex extends React.Component{
   constructor(props){
@@ -96,7 +83,7 @@ export default class PlaylistIndex extends React.Component{
         isOpen = {this.state.newPlaylistModalOpen}
         onAfterOpen = {this.toggleNewPlaylistModal}
         onRequestClose = {this.toggleNewPlaylistModal}
-        style={newPLaylistModal}
+        style={formPLaylistModal}
         >
         <NewPlaylist createPlaylist={this.props.createPlaylist}/>
       </Modal>
