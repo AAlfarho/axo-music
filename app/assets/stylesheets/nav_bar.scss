@@ -1,7 +1,6 @@
 .nav-container {
   height: 100%;
   width: auto;
-  color: #a5a4a5;
   align-items: flex-start;
   justify-content: space-between;
   margin: 0 20px 0 20px;
@@ -24,12 +23,14 @@
   align-items: baseline;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: #a5a4a5;
 }
 
 .nav-container a{
   text-decoration: none;
 }
 .search-container {
+  color: #a5a4a5;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -47,6 +48,9 @@
   color: #1db954;
 }
 
+.music-logo {
+  color: #a5a4a5;
+}
 .user-container {
   height: 80px;
   width: 100%;

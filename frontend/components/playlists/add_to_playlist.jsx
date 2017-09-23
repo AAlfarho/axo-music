@@ -1,4 +1,5 @@
 import React from 'react';
+import LineSeparator from '../util/line_separator';
 export default class AddToPlaylistList extends React.Component {
   constructor(props){
     super(props);
@@ -9,6 +10,7 @@ export default class AddToPlaylistList extends React.Component {
   }
 
   addSongToPlaylist(event){
+    debugger;
     event.preventDefault();
     const {playlists, song_id} = this.props;
     const selectedPlaylistId = parseInt(event.target.id);
@@ -30,18 +32,31 @@ export default class AddToPlaylistList extends React.Component {
   render(){
     const {playlists} = this.props;
     return(
-      <ul>
-        {
-          playlists.map(p => {
-            return (
-              <li key={`pl-${p.id}`} id={p.id} onClick={this.addSongToPlaylist}>
-                {p.name}
-              </li>
-            );
-          })
-        }
-        {this.state.addStatusLabel}
-      </ul>
+
+      <div className="vbox new-playlist-flex-container">
+        <div className="new-playlist-title">
+          <h1>
+            Add to playlist
+          </h1>
+        </div>
+        <div className="new-playlist-input">
+            {
+              playlists.map(p => {
+                return (
+                  <div key={`pl-${p.id}`}
+                    className="select-playlist-to-add-song"
+                    onClick={this.addSongToPlaylist}>
+                      <div id={p.id} className="playlist-to-add-name">
+                        {p.name}
+                      </div>
+                    <LineSeparator />
+                  </div>
+                );
+              })
+            }
+            {this.state.addStatusLabel}
+        </div>
+      </div>
 
     );
   }

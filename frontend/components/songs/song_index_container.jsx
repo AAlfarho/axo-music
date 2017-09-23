@@ -1,7 +1,10 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-import {updatePlaylist} from '../../actions/playlist_actions.js';
+import {
+  updatePlaylist,
+  fetchPlaylists
+} from '../../actions/playlist_actions.js';
 import SongIndex from './song_index';
 import {PLAYLIST_COLLECTION} from '../../util/constants';
 
@@ -24,7 +27,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispacthToProps = (dispatch) => ({
-  updatePlaylist: (id) => dispatch(updatePlaylist(id))
+  updatePlaylist: (id) => dispatch(updatePlaylist(id)),
+  fetchPlaylists: () => dispatch(fetchPlaylists())
 });
 
 export default withRouter(

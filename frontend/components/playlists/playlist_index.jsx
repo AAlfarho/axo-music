@@ -79,14 +79,16 @@ export default class PlaylistIndex extends React.Component{
 
   newPlaylistModal(){
     return(
-      <Modal
-        isOpen = {this.state.newPlaylistModalOpen}
-        onAfterOpen = {this.toggleNewPlaylistModal}
-        onRequestClose = {this.toggleNewPlaylistModal}
-        style={formPLaylistModal}
-        >
-        <NewPlaylist createPlaylist={this.props.createPlaylist}/>
-      </Modal>
+      <div>
+        <Modal
+          isOpen = {this.state.newPlaylistModalOpen}
+          onAfterOpen = {this.toggleNewPlaylistModal}
+          onRequestClose = {this.toggleNewPlaylistModal}
+          style={formPLaylistModal}
+          >
+          <NewPlaylist createPlaylist={this.props.createPlaylist}/>
+        </Modal>
+      </div>
     );
   }
 

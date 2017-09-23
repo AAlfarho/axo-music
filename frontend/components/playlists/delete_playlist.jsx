@@ -25,12 +25,16 @@ export default class deletePlaylist extends React.Component {
   render(){
     const {name} = this.state;
     return(
-      <div>
-        <p>
-          Are you soure you want to delete '{name}' playlist?
-        </p>
-         <button onClick={this.handleDeletePlaylist}>Continue</button>
-      </div>
+        <div className="vbox delete-playlist-flex-container">
+          <div className="new-playlist-title">
+            <h1>
+              Delete '{name}' playlist?
+            </h1>
+          </div>
+          <div name="new-playlist-actions">
+            <button className="btn-sm btn-xl-create-pl btn-green" onClick={this.handleDeletePlaylist}>Delete</button>
+          </div>
+        </div>
     );
   }
 }

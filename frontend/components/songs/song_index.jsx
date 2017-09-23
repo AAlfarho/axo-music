@@ -10,6 +10,7 @@ const SongIndex = (props) => (
             collection={props.collection}
             collectionType={props.collectionType}
             updatePlaylist={props.updatePlaylist}
+            fetchPlaylists={props.fetchPlaylists}
             />
       ))
     }

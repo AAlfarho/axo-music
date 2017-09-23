@@ -2,20 +2,7 @@ import React from 'react';
 import {PLAYLIST_COLLECTION} from '../../util/constants';
 import Modal from 'react-modal';
 import AddToPlaylistCont from '../playlists/add_to_playlist_container';
-
-const songOptionsModal = {
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)'
-  },
-  content : {
-    top                   : '40%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
+import {formPLaylistModal}  from '../modal/modal_styles';
 // Taken from
 //https://stackoverflow.com/questions/11792726/turn-seconds-into-hms-format-using-jquery
 function secondsTimeSpanToHMS(s) {
@@ -38,6 +25,9 @@ export default class SongItem extends React.Component{
     };
   }
 
+  componentDidMount(){
+    this.props.fetchPlaylists();
+  }
 
   toggleModal(field){
     return (e) => {
@@ -82,15 +72,25 @@ export default class SongItem extends React.Component{
   }
 
   songOptionsModal(){
+    const {song, collection} = this.props;
     return(
       <Modal
         isOpen = {this.state.deleteSongModalOpen}
         onAfterOpen = {this.toggleSongOptModal}
         onRequestClose = {this.toggleSongOptModal}
-        style={songOptionsModal}
+        style={formPLaylistModal}
         >
-        Are you sure you want to delete the song?
-        <button onClick={this.handleDeleteSong}> DELETE </button>
+        <div className="vbox delete-playlist-flex-container">
+          <div className="new-playlist-title">
+            <h1>
+              Delete {`'${song.title}'`} from {`'${collection.name}'`}?
+            </h1>
+          </div>
+          <div name="new-playlist-actions">
+            <button className="btn-sm btn-xl-create-pl btn-green" onClick={this.handleDeleteSong}>Delete</button>
+          </div>
+        </div>
+
       </Modal>
     );
   }
@@ -101,7 +101,7 @@ export default class SongItem extends React.Component{
         isOpen = {this.state.addSongToCollectionModalOpen}
         onAfterOpen = {this.toggleAddSongModal}
         onRequestClose = {this.toggleAddSongModal}
-        style={songOptionsModal}
+        style={formPLaylistModal}
         >
         <AddToPlaylistCont song_id={this.props.song.id}/>
       </Modal>

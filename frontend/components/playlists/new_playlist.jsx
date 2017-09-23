@@ -27,6 +27,11 @@ export default class NewPlaylist extends React.Component {
         this.setState({
           actionStatus: `Playlist \'${playlistName}\' created! `
         });
+      },
+      errors => {
+        this.setState({
+          actionStatus:  errors.errors
+        });
       }
     );
   }
@@ -34,13 +39,23 @@ export default class NewPlaylist extends React.Component {
   render(){
     const {playlistName, actionStatus} = this.state;
     return(
-      <div>
-        New Playlist
-        <input type="text" value={playlistName}
-           onChange={this.handleChange('playlistName')}
-           placeholder="Playlist Name"/>
-         <button onClick={this.handlePlaylistCreation}>Create</button>
-         {actionStatus}
+      <div className="vbox new-playlist-flex-container">
+        <div className="new-playlist-title">
+          <h1>
+            Create new playlist
+          </h1>
+        </div>
+        <div className="new-playlist-input">
+          <input type="text" className="modal-input-dark" value={playlistName}
+            onChange={this.handleChange('playlistName')}
+            placeholder="Start typing..."/>
+        </div>
+        <div name="new-playlist-actions">
+          <button className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistCreation}>Create</button>
+        </div>
+        <div className="new-playlist-res">
+          {actionStatus}
+        </div>
       </div>
     );
   }

@@ -37,7 +37,7 @@ export default class NavBar extends React.Component {
                 fontWeight: 'bold',
                 color: '#1db954'
               }}> Playlists </NavLink>
-            <i className="fa fa-music"></i>
+            <i className="fa fa-music music-logo"></i>
            </div>
 
         </div>

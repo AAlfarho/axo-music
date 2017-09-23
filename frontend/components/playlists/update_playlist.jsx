@@ -22,13 +22,25 @@ export default class UpdatePlaylist extends React.Component {
   }
 
   render(){
-    const {name} = this.state;
+    const {name, actionStatus} = this.state;
     return(
-      <div>
-        Update Playlist
-        <input type="text" value={name}
-           onChange={this.handleChange('name')}/>
-         <button onClick={this.handlePlaylistUpdate}>Create</button>
+      <div className="vbox new-playlist-flex-container">
+        <div className="new-playlist-title">
+          <h1>
+            Update Playlist
+          </h1>
+        </div>
+        <div className="new-playlist-input">
+          <input type="text" className="modal-input-dark" value={name}
+            onChange={this.handleChange('name')}
+            placeholder="Start typing..."/>
+        </div>
+        <div name="new-playlist-actions">
+          <button className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistUpdate}>Update</button>
+        </div>
+        <div className="new-playlist-res">
+          {actionStatus}
+        </div>
       </div>
     );
   }
