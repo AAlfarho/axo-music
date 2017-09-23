@@ -7,7 +7,9 @@ export default class MainCanvas extends React.Component {
       super(props);
     }
     componentDidMount(){
-      this.props.history.push('/collection/playlists');
+      if(this.props.location.pathname === "/"){
+        this.props.history.push('/collection/playlists');
+      }
     }
 
     render(){

@@ -1,0 +1,37 @@
+.song-index-flex-container {
+  border: 1px solid white;
+  flex-wrap: nowrap;
+  padding-top: 30px;
+}
+
+.song-item-flex-cotainer {
+  border: 1px solid white;
+  // height: 200px;
+  color: white;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5px;
+  margin: 5px;
+  min-height: 40px;
+
+}
+
+.song-left-details{
+  align-self: flex-end;
+}
+
+.song-detail-items {
+  width: 100%
+}
+
+.song-title-container{
+  align-self: flex-start;
+  flex: 1;
+}
+
+.song-details {
+  justify-content: space-between;
+}
+.song-left-details {
+  margin-right: 10px;
+}

@@ -2,20 +2,18 @@ import React from 'react';
 import SongItem from './song_item';
 
 const SongIndex = (props) => (
-  <ol>
+  <div className="vbox song-index-flex-container viewport">
     {
       props.songs.map((song, index) => (
-        <li>
           <SongItem song={song}
             showDelete={props.showDelete}
             collection={props.collection}
             collectionType={props.collectionType}
             updatePlaylist={props.updatePlaylist}
             />
-        </li>
       ))
     }
-  </ol>
+  </div>
 );
 
 export default SongIndex;

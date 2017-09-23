@@ -45,3 +45,19 @@
   border: 1px solid white;
   margin: 10px 10px 10px 10px;
 }
+
+
+.playlist-detail-flex-container {
+  border: 1px solid white;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.playlist-media-info-container {
+  padding: 50px;
+}
+
+.playlist-song-index-container {
+  width: 80%
+}

@@ -16,7 +16,15 @@ const songOptionsModal = {
     transform             : 'translate(-50%, -50%)'
   }
 };
-
+// Taken from
+//https://stackoverflow.com/questions/11792726/turn-seconds-into-hms-format-using-jquery
+function secondsTimeSpanToHMS(s) {
+    var h = Math.floor(s/3600); //Get whole hours
+    s -= h*3600;
+    var m = Math.floor(s/60); //Get remaining minutes
+    s -= m*60;
+    return (m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on
+}
 export default class SongItem extends React.Component{
   constructor(props){
     super(props);
@@ -106,23 +114,34 @@ export default class SongItem extends React.Component{
   render(){
     const {collection, song, showDelete} = this.props;
     return (
-      <div style={{padding: '30px'}}>
+      <div className="hbox song-item-flex-cotainer">
         {this.songOptionsModal()}
         {this.addToPlaylistModal()}
-        {song.title}
-        <ul>
-          <li>{song.length}</li>
-          <li>{song.artist_name}</li>
-          <li>{song.album_name}</li>
-          {
-            showDelete &&
-            <button onClick={this.toggleSongOptModal}>
-              -
-            </button>
+        <div className="vbox song-detail-items">
+          <div className="hbox song-title-container">
+            {song.title}
+          </div>
 
-          }
-          <button onClick={this.toggleAddSongModal}>+</button>
-        </ul>
+          <div className="hbox song-details">
+            <div>
+              By: {song.artist_name}
+            </div>
+            <div className="song-left-details">
+              {secondsTimeSpanToHMS(song.length)}
+              {
+                showDelete &&
+                <button onClick={this.toggleSongOptModal}>
+                  -
+                </button>
+
+              }
+              <button onClick={this.toggleAddSongModal}>+</button>
+            </div>
+          </div>
+
+        </div>
+
+
       </div>
     );
   }

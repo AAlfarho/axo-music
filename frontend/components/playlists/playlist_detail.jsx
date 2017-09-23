@@ -25,15 +25,20 @@ export default class PlaylistIndex extends React.Component{
   render(){
     const {playlist, songs} = this.props;
     return(
-      <div style={{padding: '30px'}}>
-        <MediaInfoItem img_url={playlist.image_url} media_name={playlist.name}
-            media_author={playlist.author_id} media_author_name={playlist.author_name}
-            detail_url={`/user/${playlist.author_id}/playlist/${playlist.id}`}/>
+      <div className="hbox playlist-detail-flex-container">
+        <div className="playlist-media-info-container">
+          <MediaInfoItem img_url={playlist.image_url} media_name={playlist.name}
+              media_author={playlist.author_id} media_author_name={playlist.author_name}
+              detail_url={`/user/${playlist.author_id}/playlist/${playlist.id}`}/>
+        </div>
+
+        <div className="playlist-song-index-container vieport">
           <SongIndexContainer
             collectionType={PLAYLIST_COLLECTION}
             collection={playlist}
             songs={Object.values(songs)}
             />
+        </div>
       </div>
 
     );
