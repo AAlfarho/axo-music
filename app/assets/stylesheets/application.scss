@@ -20,7 +20,8 @@
 *= require media_info
 *= require song
 */
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -88,6 +89,20 @@ body {
 .btn-green, .btn-green a:visited {
   color: white;
   background-color: #1db954;
+}
+
+.global-separator-line {
+    width: 50%;
+    height: 1px;
+    background-color: hsla(0, 0%, 100%, .6);
+}
+
+.global-separator-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 

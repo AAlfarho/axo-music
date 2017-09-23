@@ -1,0 +1,65 @@
+.nav-container {
+  height: 100%;
+  width: auto;
+  color: #a5a4a5;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 20px 0 20px;
+}
+
+.nav-action-container {
+  height: 100%;
+  width: 100%;;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1px solid green;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.nav-brand-logo {
+  height: 40px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-container a{
+  text-decoration: none;
+}
+.search-container {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+}
+
+.nav-container a:visited{
+  text-decoration: none;
+  color: #a5a4a5;
+}
+
+
+.nav-container a:active{
+  text-decoration: none;
+  color: #1db954;
+}
+
+.user-container {
+  height: 80px;
+  width: 100%;
+  border: 1px solid yellow;
+  margin-top: 10px;
+}
+.search-logo {
+  align-self: flex-end;
+}
+
+.playlist-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-around;
+}

@@ -23,8 +23,8 @@ export default class MainCanvas extends React.Component {
               <MainPlayground />
             </article>
           </section>
-          <footer className="media-player-flex-item">
-            media player
+          <footer className="media-player-flex-item" style={{color:'white'}}>
+            Media Player Placeholder
           </footer>
         </div>
       );

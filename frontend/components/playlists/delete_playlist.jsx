@@ -16,7 +16,7 @@ export default class deletePlaylist extends React.Component {
     };
   }
 
-  handleDeletePlaylist(){;
+  handleDeletePlaylist(){
     this.props.deletePlaylist(this.state.id).then(
       () => this.props.history.push("/")
     );
