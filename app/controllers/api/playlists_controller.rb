@@ -24,7 +24,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update
-    @playlist = current_user.authored_playlists.find(params[:id])
+    @playlist = current_user.authored_playlists.includes(:songs).find(params[:id])
     if @playlist.update(playlist_params)
       ids = params['playlist']['song_ids'];
       if !ids || ids.length == 1 && ids.first == ""

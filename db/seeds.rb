@@ -72,9 +72,11 @@ Playlist.destroy_all
 #aalfarho playlsits
 this_is_diiv = Playlist.create(name: 'This Is DIIV', author_id: aalfarho.id)
 this_is_beach_fossils = Playlist.create(name: 'This Is Beach Fossils', author_id: aalfarho.id)
+Playlist.create(name: 'In construction...', author_id: aalfarho.id)
 
 #guest playlist
 all_indie = Playlist.create(name: 'All Indie', author_id: guest.id)
+Playlist.create(name: 'Empty', author_id: guest.id)
 
 ############################################################
 ################ Playlist-song seed creation ###############

@@ -33,10 +33,13 @@ export default class PlaylistIndex extends React.Component{
     if(currId && newId && currId !== newId){
       this.props.fetchPlaylist(newProps.match.params.playlistId);
     }
-    this.setState({
-      udpatePlaylistModalOpen: false,
-      deletePlaylistModalOpen: false
-    });
+    if(newProps.state.errors.playlist.length === 0){
+      this.setState({
+        udpatePlaylistModalOpen: false,
+        deletePlaylistModalOpen: false
+      });
+    }
+
 
   }
 

@@ -10,7 +10,6 @@ export default class AddToPlaylistList extends React.Component {
   }
 
   addSongToPlaylist(event){
-    debugger;
     event.preventDefault();
     const {playlists, song_id} = this.props;
     const selectedPlaylistId = parseInt(event.target.id);
@@ -54,7 +53,11 @@ export default class AddToPlaylistList extends React.Component {
                 );
               })
             }
-            {this.state.addStatusLabel}
+            <div className="hbox song-add-to-pl-res-container">
+              <div className="song-add-to-pl-res">
+                {this.state.addStatusLabel}
+              </div>
+            </div>
         </div>
       </div>
 

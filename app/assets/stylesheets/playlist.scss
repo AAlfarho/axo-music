@@ -1,11 +1,11 @@
 .playlist-index-container {
-  border: 1px solid red;
+  // border: 1px solid red;
   padding: 15px;
 }
 
 .header-container {
   height: 15%;
-  border: 1px solid white;
+  // border: 1px solid white;
   min-height: 35px;
   padding-right: 15px;
   align-items: flex-start;
@@ -105,4 +105,14 @@
 
 .select-playlist-to-add-song:active{
   color: #1db954
+}
+.new-playlist-res, .update-playlist-res {
+    color: #1db954
+}
+
+.song-add-to-pl-res {
+    color: #1db954
+}
+.song-add-to-pl-res-container {
+  justify-content: center;
 }

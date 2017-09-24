@@ -26,7 +26,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     playlist,
-    songs
+    songs,
+    state
   };
 
 };
