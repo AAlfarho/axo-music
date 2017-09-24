@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-dummy_img = "https://media.pitchfork.com/photos/5929c52813d197565213bf56/1:1/w_320/45f756c9.jpg"
 ############################################################
 ############### User seed creation #########################
 ############################################################
@@ -27,11 +26,11 @@ diiv = Artist.create(name: 'DIIV')
 ################ Album seed creation #######################
 ############################################################
 Album.destroy_all
-is_the_is_are = Album.create(title: 'Is The Is Are', artist_id: diiv.id, release_yr: 2016, img_url: dummy_img)
-oshin = Album.create(title: 'Oshin', artist_id: diiv.id, release_yr: 2012, img_url: dummy_img)
+is_the_is_are = Album.create(title: 'Is The Is Are', artist_id: diiv.id, release_yr: 2016)
+oshin = Album.create(title: 'Oshin', artist_id: diiv.id, release_yr: 2012)
 
-sommersault = Album.create(title: 'Sommersault', artist_id: beach_fossils.id, release_yr: 2017, img_url: dummy_img)
-clash_the_truth = Album.create(title: 'Clash The Truth', artist_id: beach_fossils.id, release_yr: 2013, img_url: dummy_img)
+sommersault = Album.create(title: 'Sommersault', artist_id: beach_fossils.id, release_yr: 2017)
+clash_the_truth = Album.create(title: 'Clash The Truth', artist_id: beach_fossils.id, release_yr: 2013)
 
 
 ############################################################

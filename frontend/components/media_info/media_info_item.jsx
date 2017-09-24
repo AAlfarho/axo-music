@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 const MediaInfoItem = (props) => (
   <div className="vbox media-info-flex-container">
     <div className="vbox media-info-image-container">
-      <img src="https://media.pitchfork.com/photos/5929c52813d197565213bf56/1:1/w_320/45f756c9.jpg" />
-      {props.image_url}
+      <img src={props.image_url} />
     </div>
     <div className="vbox media-info-footer">
       <div className="media-info-link">

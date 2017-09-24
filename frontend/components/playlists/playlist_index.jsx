@@ -42,6 +42,7 @@ export default class PlaylistIndex extends React.Component{
   }
 
   render(){
+    debugger;
     return(
       <div className="vbox viewport playlist-index-container">
         <div className="hbox header-container">
@@ -62,7 +63,7 @@ export default class PlaylistIndex extends React.Component{
             this.props.playlists.map(playlist => (
               <div className="playlist-media-info-item">
               <MediaInfoItem
-                key={`med-inf-${playlist.id}`}img_url={playlist.image_url}
+                key={`med-inf-${playlist.id}`} image_url={playlist.image_url}
                 media_name={playlist.name}
                 media_author={playlist.author_id}
                 media_author_name={playlist.author_name}
