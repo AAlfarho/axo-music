@@ -42,7 +42,6 @@ export default class PlaylistIndex extends React.Component{
   }
 
   render(){
-    debugger;
     return(
       <div className="vbox viewport playlist-index-container">
         <div className="hbox header-container">
