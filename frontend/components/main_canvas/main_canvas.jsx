@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import MainPlayground from '../main_playground/main_playground';
+import MediaPlayerContainer from '../media_player/media_player_container';
 
 export default class MainCanvas extends React.Component {
     constructor(props){
@@ -24,7 +25,7 @@ export default class MainCanvas extends React.Component {
             </article>
           </section>
           <footer className="media-player-flex-item" style={{color:'white'}}>
-            Media Player Placeholder
+            <MediaPlayerContainer />
           </footer>
         </div>
       );
