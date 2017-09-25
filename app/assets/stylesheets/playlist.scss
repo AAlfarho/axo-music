@@ -84,7 +84,7 @@
 }
 
 .new-playlist-input{
-  width: 100%;
+  width: 98%;
   height: 160px;
   padding-bottom: 30px;
 }
@@ -115,4 +115,8 @@
 }
 .song-add-to-pl-res-container {
   justify-content: center;
+}
+
+#playlist-input {
+  padding: 10px;
 }

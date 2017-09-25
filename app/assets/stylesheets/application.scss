@@ -41,6 +41,10 @@ body {
   font-family: 'proxima_nova', sans-serif;
 }
 
+a, button, img {
+  cursor: pointer;
+}
+
 .small-logo {
   margin-bottom: 50px;
   margin-top: 50px;
@@ -201,7 +205,7 @@ html, body, .viewport {
 .btn-xl-create-pl{
   width: 250px;
   height: 60px;
-  margin: 10px;
+  margin: 60px;
   font-size: xx-large;
 }
 

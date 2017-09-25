@@ -5,7 +5,8 @@
 }
 
 .song-item-flex-cotainer:hover{
-  background-color: rgba(76, 175, 80, 0.22);
+  // background-color: rgba(76, 175, 80, 0.22);
+  border-bottom: 1px solid #1db954;
 }
 
 .song-item-flex-cotainer {
@@ -13,11 +14,11 @@
   // height: 200px;
   color: #969494;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   padding: 5px;
   margin: 5px;
   min-height: 40px;
-  border-radius: 50px;
+  border-radius: 5px;
   padding: 5px 0 5px 10px;
 }
 
@@ -39,4 +40,18 @@
 }
 .song-left-details {
   margin-right: 10px;
+  justify-content: space-between;
+  width: 80px;
+}
+
+.pl-detail-delete-song:hover{
+  color: red;
+}
+
+.pl-detail-delete-song:hover{
+  color: #8c2020;
+}
+
+.pl-detail-add-song:hover{
+  color: #1db954
 }

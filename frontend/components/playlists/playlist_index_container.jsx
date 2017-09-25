@@ -26,7 +26,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     playlists,
     userId: userToDisplayPlaylsits.id,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    errors: state.errors.playlist
   };
 };
 

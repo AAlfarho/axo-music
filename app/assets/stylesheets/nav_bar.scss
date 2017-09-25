@@ -66,4 +66,15 @@
   margin-bottom: 20px;
   width: 100%;
   justify-content: space-around;
+  color: #a5a4a5;
+  cursor: pointer;
+}
+
+.playlist-container-navlink {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.playlist-container:active{
+  color: #1db954;
 }

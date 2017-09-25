@@ -31,7 +31,9 @@ export default class PlaylistIndex extends React.Component{
   }
 
   componentWillReceiveProps(newProps){
-    //this.handlePlaylistUserFetching(newProps);
+    if(newProps.errors.length === 0){
+        this.setState({newPlaylistModalOpen: false});
+    }
   }
 
   handlePlaylistUserFetching(propsToUse){

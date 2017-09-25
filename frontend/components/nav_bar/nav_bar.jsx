@@ -5,8 +5,13 @@ import LineSeparator from '../util/line_separator';
 export default class NavBar extends React.Component {
   constructor(props){
     super(props);
+
+    this.handlePlaylistClick = this.handlePlaylistClick.bind(this);
   }
 
+  handlePlaylistClick(){
+    this.props.history.push("/collection/playlists");
+  }
 
   render(){
     return(
@@ -31,13 +36,11 @@ export default class NavBar extends React.Component {
 
           </div>
           <LineSeparator />
-          <div className=" hbox playlist-container">
-            <NavLink to="/collection/playlists"
-              activeStyle={{
-                fontWeight: 'bold',
-                color: '#1db954'
-              }}> Playlists </NavLink>
-            <i className="fa fa-music music-logo"></i>
+          <div onClick={this.handlePlaylistClick} className="hbox playlist-container">
+              <div>Playlists</div>
+              <div>
+                <i className="fa fa-music navlink-music-logo"></i>
+              </div>
            </div>
 
         </div>

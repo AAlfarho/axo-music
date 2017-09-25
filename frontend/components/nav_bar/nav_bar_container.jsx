@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-
+import {withRouter} from 'react-router-dom';
 import NavBar from './nav_bar';
 import {logout} from '../../actions/session_actions.js';
 import {fetchPlaylists} from '../../actions/playlist_actions';
@@ -13,7 +13,7 @@ const mapDispacthToProps = (dispatch) => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispacthToProps
-)(NavBar);
+)(NavBar));

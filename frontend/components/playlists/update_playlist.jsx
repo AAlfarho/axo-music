@@ -13,8 +13,19 @@ export default class UpdatePlaylist extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
+  componentDidMount(){
+    document.getElementById('playlist-input').focus();
+    //https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
+    document.getElementById("playlist-input")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("update-button").click();
+    }
+});
+  }
+
   handleTitleChange(event){
-      event.preventDefault();
       const val = event.target.value;
       const newState = merge({}, this.state);
       newState.playlist.name = val;
@@ -39,13 +50,13 @@ export default class UpdatePlaylist extends React.Component {
             Update Playlist
           </h1>
         </div>
-        <div className="new-playlist-input">
-          <input type="text" className="modal-input-dark" value={playlist.name}
+        <div className="hbox new-playlist-input">
+          <input id="playlist-input" type="text" className="modal-input-dark" value={playlist.name}
             onChange={this.handleTitleChange}
             placeholder="Start typing..."/>
         </div>
         <div name="new-playlist-actions">
-          <button className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistUpdate}>Update</button>
+          <button id="update-button" className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistUpdate}>Update</button>
         </div>
         <div className="update-playlist-res">
           {actionStatus}

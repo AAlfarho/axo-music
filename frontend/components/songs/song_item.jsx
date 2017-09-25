@@ -121,18 +121,22 @@ export default class SongItem extends React.Component{
 
           <div className="hbox song-details">
             <div>
-              By: {song.artist_name}
+              Artist: {song.artist_name}
             </div>
-            <div className="song-left-details">
+            <div>
+              Album: {song.album_name}
+            </div>
+            <div className="hbox song-left-details">
               {secondsTimeSpanToHMS(song.length)}
               {
                 showDelete &&
-                <button onClick={this.toggleSongOptModal}>
-                  -
-                </button>
-
+                <div className="pl-detail-delete-song" onClick={this.toggleSongOptModal}>
+                  <i className="fa fa-minus-square"></i>
+                </div>
               }
-              <button onClick={this.toggleAddSongModal}>+</button>
+              <div className="pl-detail-add-song" onClick={this.toggleAddSongModal}>
+                <i className="fa fa-plus-square"></i>
+              </div>
             </div>
           </div>
 

@@ -10,6 +10,19 @@ export default class NewPlaylist extends React.Component {
     this.handlePlaylistCreation = this.handlePlaylistCreation.bind(this);
   }
 
+  componentDidMount(){
+    document.getElementById('playlist-input').focus();
+    //https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
+    document.getElementById("playlist-input")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("add-button").click();
+    }
+    });
+
+  }
+
   handleChange(field){
     return (event) => {
       this.setState({
@@ -45,13 +58,13 @@ export default class NewPlaylist extends React.Component {
             Create new playlist
           </h1>
         </div>
-        <div className="new-playlist-input">
-          <input type="text" className="modal-input-dark" value={playlistName}
+        <div className="hbox new-playlist-input">
+          <input id="playlist-input" type="text" className="modal-input-dark" value={playlistName}
             onChange={this.handleChange('playlistName')}
-            placeholder="Start typing..."/>
+            placeholder="Start typing..." autofocus/>
         </div>
         <div name="new-playlist-actions">
-          <button className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistCreation}>Create</button>
+          <button id="add-button" className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistCreation}>Create</button>
         </div>
         <div className="new-playlist-res">
           {actionStatus}
