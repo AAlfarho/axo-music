@@ -13,7 +13,24 @@
 User.destroy_all
 aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password')
 guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password')
+friendly_joe = User.create(username: 'Friendly Joe', email:'friendly@example.com', password: 'password');
 
+
+############################################################
+################ Friendhsip seed creation ##################
+############################################################
+Friendship.destroy_all
+
+##Friendly joe and guest are friends with everyone
+Friendship.create(user_id: friendly_joe.id, friend_id: aalfarho.id)
+Friendship.create(user_id: friendly_joe.id, friend_id: guest.id)
+
+Friendship.create(user_id: guest.id, friend_id: aalfarho.id)
+Friendship.create(user_id: guest.id, friend_id: friendly_joe.id)
+
+
+##aalfarho is friends only with guest
+Friendship.create(user_id: aalfarho.id, friend_id: guest.id)
 
 ############################################################
 ############### Artist seed creation #######################
@@ -84,6 +101,19 @@ Playlist.create(name: 'In construction...', author_id: aalfarho.id)
 #guest playlist
 all_indie = Playlist.create(name: 'All Indie', author_id: guest.id)
 Playlist.create(name: 'Empty', author_id: guest.id)
+
+
+############################################################
+################ Playlist-follow seed creation #############
+############################################################
+##Guest follows 2 of aalfarho's playlists
+PlaylistFollowship.destroy_all
+PlaylistFollowship.create(playlist_id: this_is_diiv.id, user_id: guest.id)
+PlaylistFollowship.create(playlist_id: this_is_beach_fossils.id, user_id: guest.id)
+
+##aalfarho follows only the non-empty playlist form guest
+PlaylistFollowship.create(playlist_id: all_indie.id, user_id: aalfarho.id)
+
 
 ############################################################
 ################ Playlist-song seed creation ###############

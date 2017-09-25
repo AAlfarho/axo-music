@@ -23,6 +23,29 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Playlist
 
+  has_many :playlist_followship,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :PlaylistFollowship
+
+  has_many :playlist_followed,
+  through: :playlist_followship,
+  source: :playlist
+
+  has_many :friendhsips,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :Friendship
+
+  has_many :other_friendships,
+  primary_key: :id,
+  foreign_key: :friend_id,
+  class_name: :User
+
+  has_many :friends,
+  through: :friendhsips,
+  source: :user_friends
+
   attr_reader :password
 
   def password=(password)

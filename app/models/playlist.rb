@@ -23,8 +23,17 @@ class Playlist < ApplicationRecord
   class_name: :PlaylistSong,
   dependent: :destroy
 
+  has_many :playlist_followships,
+  primary_key: :id,
+  foreign_key: :playlist_id,
+  class_name: :PlaylistFollowship
+
   has_many :songs,
   through: :playlist_song_memberships,
   source: :song
+
+  has_many :followers,
+  through: :playlist_followships,
+  source: :user
 
 end
