@@ -29,12 +29,37 @@
 
 .media-player-control-flex-container {
   justify-content: space-evenly;
+  width: 60%;
 }
 
 .media-player-playback-controls{
-  justify-content: center;
+  justify-content: inherit;
 }
 
 .media-player-progress{
   justify-content: center;
+  width: 100%;
+}
+
+.media-player-progress progress{
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.current-song-display-flex-container {
+  min-height: 120px;
+  width: 350px;
+}
+
+ .media-player-playback-controls > *{
+
+ }
+
+ progress[value]{
+   //background-color: #1db954;
+  // border-radius: 100px;
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }

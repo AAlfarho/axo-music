@@ -64,19 +64,19 @@ Song.destroy_all
 ##Sommersault songs
 this_year = Song.create(title: 'This Year', length: 168, artist_id: beach_fossils.id, album_id: sommersault.id, file_path: song_array[0])
 sugar = Song.create(title: 'Sugar', length: 194, artist_id: beach_fossils.id, album_id: sommersault.id, file_path: song_array[1])
-saint_ivy = Song.create(title: 'Saint Ivy', length: 224, artist_id: beach_fossils.id, album_id: sommersault.id)
+saint_ivy = Song.create(title: 'Saint Ivy', length: 224, artist_id: beach_fossils.id, album_id: sommersault.id, file_path: song_array[2])
 
 ##Clash the truth songs
-clash_the = Song.create(title: 'Clash The Truth', length: 123, artist_id: beach_fossils.id, album_id: clash_the_truth.id, file_path: song_array[2])
-sleep_apnea = Song.create(title: 'Sleep Apnea', length: 146, artist_id: beach_fossils.id, album_id: clash_the_truth.id, file_path: song_array[3])
+clash_the = Song.create(title: 'Clash The Truth', length: 123, artist_id: beach_fossils.id, album_id: clash_the_truth.id, file_path: song_array[3])
+sleep_apnea = Song.create(title: 'Sleep Apnea', length: 146, artist_id: beach_fossils.id, album_id: clash_the_truth.id, file_path: song_array[4])
 
 ##Is The Is Are songs
-yr_not_far = Song.create(title: 'Yr Not Far', length: 123, artist_id: diiv.id, album_id: is_the_is_are.id, file_path: song_array[4])
-valentine = Song.create(title: 'Valentine', length: 197, artist_id: diiv.id, album_id: is_the_is_are.id, file_path: song_array[5])
+yr_not_far = Song.create(title: 'Yr Not Far', length: 123, artist_id: diiv.id, album_id: is_the_is_are.id, file_path: song_array[5])
+valentine = Song.create(title: 'Valentine', length: 197, artist_id: diiv.id, album_id: is_the_is_are.id, file_path: song_array[6])
 
 ##Oshin
-doused = Song.create(title: 'Doused', length: 222, artist_id: diiv.id, album_id: oshin.id, file_path: song_array[6])
-druun = Song.create(title: '(Druun)', length: 127, artist_id: diiv.id, album_id: oshin.id, file_path: song_array[7])
+doused = Song.create(title: 'Doused', length: 222, artist_id: diiv.id, album_id: oshin.id, file_path: song_array[7])
+druun = Song.create(title: '(Druun)', length: 127, artist_id: diiv.id, album_id: oshin.id, file_path: song_array[8])
 
 
 ############################################################

@@ -19,7 +19,6 @@ export default class NavBar extends React.Component {
         )){
       //Hacky solution to keep track of current playing index
       this.setState({playingIndex: 0}, this.setState(this.setMediaPlayerState(newProps)));
-
     }
   }
 
@@ -40,7 +39,7 @@ export default class NavBar extends React.Component {
         //pop the first song.
         if(songs[songsToPlay[playingIndex]]){
           songBeingPlayed = songs[songsToPlay[playingIndex]];
-          url = songs[songsToPlay[playingIndex]].file_path;
+          url = songBeingPlayed.file_path;
           playing = true;
           queueFinished = false;
         } else {
@@ -48,7 +47,6 @@ export default class NavBar extends React.Component {
         }
       }
     }
-
     return {
       url,
       playing,
@@ -77,9 +75,36 @@ export default class NavBar extends React.Component {
   nextSong() {
     return () => {
       const {songs, playback} = this.props;
-      this.setState((prevState) => {
-        return {playingIndex: prevState.playingIndex + 1};
-      }, () => this.setState(this.setMediaPlayerState(this.props)));
+      const collectionToPlay = playback.collection;
+      if(collectionToPlay){
+        const songsToPlay = collectionToPlay.song_ids;
+        console.log(this.props);
+        console.log(this.state);
+        console.log(this.state.playingIndex + 1 >= songsToPlay.length);
+        if(this.state.playingIndex + 1 >= songsToPlay.length){
+          this.setState({
+            playing: false,
+            queueFinished: true,
+            playingIndex: 0,
+            played: 0,
+            playedSeconds: 0,
+            loaded: 0,
+            duration: 0,
+            url: songs[songsToPlay[0]].file_path});
+        } else {
+          this.setState({
+              playing: true,
+              queueFinished: true,
+              played: 0,
+              playedSeconds: 0,
+              loaded: 0,
+              duration: 0,
+              url: songs[songsToPlay[this.state.playingIndex + 1]].file_path,
+              playingIndex: this.state.playingIndex + 1
+          });
+        }
+
+      }
     };
   }
 
@@ -180,11 +205,12 @@ export default class NavBar extends React.Component {
       collection = this.props.playback.collection;
       song = this.props.songs[collection.song_ids[this.state.playingIndex]];
     }
-    console.log("url", url);
-    console.log("playing", playing);
-    console.log("duration", format(duration));
-    console.log("elapsed", format(duration * played));
-    console.log("remaining", format(duration * (1 - played)));
+
+    // console.log("url", url);
+    // console.log("playing", playing);
+    // console.log("duration", format(duration));
+    // console.log("elapsed", format(duration * played));
+    // console.log("remaining", format(duration * (1 - played)));
     const SEPARATOR = ' · ';
     return (
       <div className='media-player-container'>
@@ -220,16 +246,25 @@ export default class NavBar extends React.Component {
 
             <div className="vbox media-player-control-flex-container">
               <div className="hbox media-player-playback-controls">
-                <button onClick={this.stop()}>Stop</button>
-                <button onClick={this.playPause()}>{playing ? 'Pause' : 'Play'}</button>
-                <button onClick={this.nextSong()}>Next</button>
-                <button onClick={this.prevSong()}>Prev</button>
+                <i onClick={this.prevSong()} className="fa fa-step-backward fa-2x strong" ></i>
+                <div onClick={this.playPause()}>
+                  {
+                    playing ?
+                    <i className="fa fa-pause fa-2x strong" ></i>
+                    :
+                    <i className="fa fa-play fa-2x strong" ></i>
+                  }
+                </div>
+                <i onClick={this.nextSong()} className="fa fa-step-forward fa-2x strong" ></i>
               </div>
 
               <div className="hbox media-player-progress">
-                <p>Progress</p>
+                {format(duration * played)}
                 <progress max={1} value={played} />
-                <p>Seek</p>
+                {format(duration)}
+
+                {
+                  false &&
                   <input
                     type='range' min={0} max={1} step='any'
                     value={played}
@@ -237,6 +272,8 @@ export default class NavBar extends React.Component {
                     onChange={this.onSeekChange()}
                     onMouseUp={this.onSeekMouseUp()}
                   />
+                }
+
               </div>
 
             </div>
