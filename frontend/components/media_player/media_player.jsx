@@ -12,8 +12,9 @@ export default class NavBar extends React.Component {
 
   componentWillReceiveProps(newProps){
     // if( !this.props.playback.collection || !this.state.playing || (
-    if( !this.props.playback.collection ||
-      (this.state && this.state.queueFinished) || (
+    // ||
+    //   (this.state && this.state.queueFinished)
+    if( !this.props.playback.collection || (!this.state.playing && this.state.queueFinished) || (
       newProps.playback.collection &&
       newProps.playback.collection.id !== this.props.playback.collection.id
         )){
@@ -58,7 +59,8 @@ export default class NavBar extends React.Component {
       playbackRate: 1.0,
       playingIndex,
       queueFinished,
-      songBeingPlayed
+      songBeingPlayed,
+      oldVolume: 0.8
     };
   }
 
@@ -140,7 +142,14 @@ export default class NavBar extends React.Component {
   }
   toggleMuted(){
     return () => {
-      this.setState({ muted: !this.state.muted });
+      let volumeVal = 0;
+      let oldVolumeVal = 0;
+      if(this.state.muted){
+        volumeVal = this.state.oldVolume;
+      } else {
+        oldVolumeVal = this.state.volume;
+      }
+      this.setState({ muted: !this.state.muted, volume: volumeVal, oldVolume: oldVolumeVal });
     };
   }
 
@@ -201,6 +210,17 @@ export default class NavBar extends React.Component {
     } = this.state;
     let collection = {};
     let song = {};
+
+    let volumeIcon;
+    if(muted){
+      volumeIcon = <i className="fa fa-volume-off green-elem"></i> ;
+    } else if(volume < .5){
+      volumeIcon = <i className="fa fa-volume-down"></i> ;
+    } else {
+      volumeIcon = volumeIcon = <i className="fa fa-volume-up"></i> ;
+    }
+
+
     if(this.props.playback.collection && this.props.songs){
       collection = this.props.playback.collection;
       song = this.props.songs[collection.song_ids[this.state.playingIndex]];
@@ -278,12 +298,11 @@ export default class NavBar extends React.Component {
 
             </div>
 
-            <div className="vbox volume-media-flex-container">
-              <h6>Volume</h6>
+            <div className="hbox volume-media-flex-container">
+              <div className="volume-media-icon" onClick={this.toggleMuted()}>
+                {volumeIcon}
+              </div>
               <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume()} />
-              <label>
-                <input type='checkbox' checked={muted} onChange={this.toggleMuted()} /> Muted
-              </label>
             </div>
           </div>
 
