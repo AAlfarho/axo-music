@@ -2,3 +2,39 @@
   overflow-y: scroll;
   height: inherit;
 }
+
+
+.media-player-flex-container{
+  justify-content: space-between;
+}
+
+.thumb-info-image-container{
+  justify-content: center;
+  padding: 20px;
+}
+
+.thumb-info-image-container img{
+  width: 80px;
+  height: 80px;
+}
+
+.thumb-song-details{
+  justify-content: center;
+  padding: 10px;
+}
+
+.thumb-song-name{
+  margin-bottom: 10px;
+}
+
+.media-player-control-flex-container {
+  justify-content: space-evenly;
+}
+
+.media-player-playback-controls{
+  justify-content: center;
+}
+
+.media-player-progress{
+  justify-content: center;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import Duration from './duration';
+import ThumbDisplayContainer from '../media_info/thumb_display_container';
 export default class NavBar extends React.Component {
   constructor(props){
     super(props);
@@ -28,6 +29,7 @@ export default class NavBar extends React.Component {
     let playing = false;
     let playingIndex = 0;
     let queueFinished = false;
+    let songBeingPlayed;
     if(this.state && this.state.playingIndex !== undefined && !queueFinished){
       playingIndex = this.state.playingIndex;
     }
@@ -37,6 +39,7 @@ export default class NavBar extends React.Component {
       if(songsToPlay.length > 0) {
         //pop the first song.
         if(songs[songsToPlay[playingIndex]]){
+          songBeingPlayed = songs[songsToPlay[playingIndex]];
           url = songs[songsToPlay[playingIndex]].file_path;
           playing = true;
           queueFinished = false;
@@ -56,7 +59,8 @@ export default class NavBar extends React.Component {
       duration: 0,
       playbackRate: 1.0,
       playingIndex,
-      queueFinished
+      queueFinished,
+      songBeingPlayed
     };
   }
 
@@ -170,8 +174,18 @@ export default class NavBar extends React.Component {
       played, loaded, duration,
       playbackRate,
     } = this.state;
+    let collection = {};
+    let song = {};
+    if(this.props.playback.collection && this.props.songs){
+      collection = this.props.playback.collection;
+      song = this.props.songs[collection.song_ids[this.state.playingIndex]];
+    }
+    console.log("url", url);
+    console.log("playing", playing);
+    console.log("duration", format(duration));
+    console.log("elapsed", format(duration * played));
+    console.log("remaining", format(duration * (1 - played)));
     const SEPARATOR = ' · ';
-
     return (
       <div className='media-player-container'>
           <div className='player-wrapper'>
@@ -199,88 +213,60 @@ export default class NavBar extends React.Component {
             />
           </div>
 
+          <div className="hbox media-player-flex-container">
+            <div className="hbox current-song-display-flex-container">
+              <ThumbDisplayContainer collection={collection} song={song}/>
+            </div>
 
-          <table><tbody>
-            <tr>
-              <th>Controls</th>
-              <td>
+            <div className="vbox media-player-control-flex-container">
+              <div className="hbox media-player-playback-controls">
                 <button onClick={this.stop()}>Stop</button>
                 <button onClick={this.playPause()}>{playing ? 'Pause' : 'Play'}</button>
                 <button onClick={this.nextSong()}>Next</button>
                 <button onClick={this.prevSong()}>Prev</button>
-              </td>
-            </tr>
-            <tr>
-              <th>Seek</th>
-              <td>
-                <input
-                  type='range' min={0} max={1} step='any'
-                  value={played}
-                  onMouseDown={this.onSeekMouseDown()}
-                  onChange={this.onSeekChange()}
-                  onMouseUp={this.onSeekMouseUp()}
-                />
-              </td>
-            </tr>
-            <tr>
-              <th>Volume</th>
-              <td>
-                <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume()} />
-                <label>
-                  <input type='checkbox' checked={muted} onChange={this.toggleMuted()} /> Muted
-                </label>
-              </td>
-            </tr>
-            <tr>
-              <th>Played</th>
-              <td><progress max={1} value={played} /></td>
-            </tr>
-            <tr>
-              <th>Loaded</th>
-              <td><progress max={1} value={loaded} /></td>
-            </tr>
-          </tbody></table>
+              </div>
 
-          <h2>State</h2>
+              <div className="hbox media-player-progress">
+                <p>Progress</p>
+                <progress max={1} value={played} />
+                <p>Seek</p>
+                  <input
+                    type='range' min={0} max={1} step='any'
+                    value={played}
+                    onMouseDown={this.onSeekMouseDown()}
+                    onChange={this.onSeekChange()}
+                    onMouseUp={this.onSeekMouseUp()}
+                  />
+              </div>
 
-          <table><tbody>
-            <tr>
-              <th>url</th>
-              <td className={!url ? 'faded' : ''}>
-                {(url instanceof Array ? 'Multiple' : url) || 'null'}
-              </td>
-            </tr>
-            <tr>
-              <th>playing</th>
-              <td>{playing ? 'true' : 'false'}</td>
-            </tr>
-            <tr>
-              <th>volume</th>
-              <td>{volume.toFixed(3)}</td>
-            </tr>
-            <tr>
-              <th>played</th>
-              <td>{played.toFixed(3)}</td>
-            </tr>
-            <tr>
-              <th>loaded</th>
-              <td>{loaded.toFixed(3)}</td>
-            </tr>
-            <tr>
-              <th>duration</th>
-              <td><Duration seconds={duration} /></td>
-            </tr>
-            <tr>
-              <th>elapsed</th>
-              <td><Duration seconds={duration * played} /></td>
-            </tr>
-            <tr>
-              <th>remaining</th>
-              <td><Duration seconds={duration * (1 - played)} /></td>
-            </tr>
-          </tbody></table>
+            </div>
+
+            <div className="vbox volume-media-flex-container">
+              <h6>Volume</h6>
+              <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume()} />
+              <label>
+                <input type='checkbox' checked={muted} onChange={this.toggleMuted()} /> Muted
+              </label>
+            </div>
+          </div>
 
       </div>
     );
   }
+}
+
+
+function format (seconds) {
+  const date = new Date(seconds * 1000);
+  const hh = date.getUTCHours();
+  const mm = date.getUTCMinutes();
+  const ss = pad(date.getUTCSeconds());
+  if (hh) {
+    return `${hh}:${pad(mm)}:${ss}`;
+  }
+  return `${mm}:${ss}`;
+}
+
+function pad (string) {
+  return ('0' + string).slice(-2);
 }
