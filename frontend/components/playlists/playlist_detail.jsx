@@ -23,7 +23,7 @@ export default class PlaylistIndex extends React.Component{
 
 
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.fetchPlaylist(this.props.match.params.playlistId);
   }
 
@@ -73,7 +73,7 @@ export default class PlaylistIndex extends React.Component{
               playlist.user_owns &&
               <div className="hbox playlist-owner-actions">
                 <button className="btn-sm btn-green btn-owner-actions-pl"
-                  onClick={this.toggleUpdatePlaylistModal}>Update</button>
+                  onClick={this.toggleUpdatePlaylistModal}>Rename</button>
                 <button className="btn-sm btn-white btn-owner-actions-pl"
                   onClick={this.toggleDeletePlaylistModal}>Delete</button>
               </div>

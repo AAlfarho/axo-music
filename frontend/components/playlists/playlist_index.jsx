@@ -10,7 +10,7 @@ export default class PlaylistIndex extends React.Component{
     this.state = {
       newPlaylistModalOpen: false
     };
-    this.handlePlaylistUserFetching = this.handlePlaylistUserFetching.bind(this);
+
     this.toggleNewPlaylistModal = this.toggleNewPlaylistModal.bind(this);
   }
 
@@ -23,7 +23,7 @@ export default class PlaylistIndex extends React.Component{
     }
   }
 
-  componentDidMount(){
+  componentWillMount(){
     const {userId, currentUser} = this.props;
     if(userId === currentUser.id){
       this.props.fetchPlaylists();
@@ -33,13 +33,6 @@ export default class PlaylistIndex extends React.Component{
   componentWillReceiveProps(newProps){
     if(newProps.errors.length === 0){
         this.setState({newPlaylistModalOpen: false});
-    }
-  }
-
-  handlePlaylistUserFetching(propsToUse){
-    const {userId, currentUser} = propsToUse;
-    if(userId !== currentUser.id && this.props !== propsToUse){
-      this.props.fetchPlaylists();
     }
   }
 
@@ -82,7 +75,7 @@ export default class PlaylistIndex extends React.Component{
           onAfterOpen = {this.toggleNewPlaylistModal}
           onRequestClose = {this.toggleNewPlaylistModal}
           style={formPLaylistModal}
-          contentLabel= "new-playlist"
+          contentLabel="new-playlist"
           >
           <NewPlaylist createPlaylist={this.props.createPlaylist}/>
         </Modal>

@@ -56,7 +56,7 @@ export default class UpdatePlaylist extends React.Component {
             placeholder="Start typing..."/>
         </div>
         <div name="new-playlist-actions">
-          <button id="update-button" className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistUpdate}>Update</button>
+          <button id="update-button" className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistUpdate}>Rename</button>
         </div>
         <div className="update-playlist-res">
           {actionStatus}

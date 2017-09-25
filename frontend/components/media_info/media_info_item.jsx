@@ -9,7 +9,10 @@ export default class MediaInfoItem extends React.Component {
 
   handleReproduceCollection(event){
     event.preventDefault();
-    this.props.reproduceCollection(this.props.collection);
+    if(this.props.collection.song_ids.length > 0){
+      this.props.reproduceCollection(this.props.collection);
+    }
+
   }
 
   render(){

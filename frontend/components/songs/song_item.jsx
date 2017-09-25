@@ -25,10 +25,6 @@ export default class SongItem extends React.Component{
     };
   }
 
-  componentDidMount(){
-    this.props.fetchPlaylists();
-  }
-
   toggleModal(field){
     return (e) => {
       this.setState((prevState) => {
