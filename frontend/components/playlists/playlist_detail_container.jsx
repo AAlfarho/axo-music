@@ -12,11 +12,11 @@ import PlaylistDetail from './playlist_detail';
 
 const mapStateToProps = (state, ownProps) => {
   let playlist = state.playlists[ownProps.match.params.playlistId];
-  let songs = {};
+  let songs = [];
   if(playlist){
     playlist.song_ids.forEach(id => {
       if(state.songs[id]){
-        songs[id] = state.songs[id];
+        songs.push(state.songs[id]);
       }
     });
   } else {

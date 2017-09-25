@@ -26,21 +26,14 @@ diiv = Artist.create(name: 'DIIV')
 ################ Album seed creation #######################
 ############################################################
 Album.destroy_all
-is_the_is_are = Album.new(title: 'Is The Is Are', artist_id: diiv.id, release_yr: 2016)
-is_the_is_are.image = File.open(File.join(Rails.root,'app/assets/images/is_the.jpeg'))
-is_the_is_are.save
+is_the_is_are = Album.create(title: 'Is The Is Are', artist_id: diiv.id, release_yr: 2016, image_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/is_the.jpeg")
 
-oshin = Album.new(title: 'Oshin', artist_id: diiv.id, release_yr: 2012)
-oshin.image = File.open(File.join(Rails.root,'app/assets/images/oshin.png'))
+oshin = Album.create(title: 'Oshin', artist_id: diiv.id, release_yr: 2012, image_url: 'https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/oshin.png')
 
 
-sommersault = Album.new(title: 'Sommersault', artist_id: beach_fossils.id, release_yr: 2017)
-sommersault.image = File.open(File.join(Rails.root,'app/assets/images/somersault.jpeg'))
-sommersault.save
+sommersault = Album.create(title: 'Sommersault', artist_id: beach_fossils.id, release_yr: 2017, image_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/somersault.jpeg")
 
-clash_the_truth = Album.new(title: 'Clash The Truth', artist_id: beach_fossils.id, release_yr: 2013)
-clash_the_truth.image = File.open(File.join(Rails.root,'app/assets/images/clash.jpg'))
-clash_the_truth.save
+clash_the_truth = Album.create(title: 'Clash The Truth', artist_id: beach_fossils.id, release_yr: 2013, image_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/clash.jpg")
 
 
 ############################################################

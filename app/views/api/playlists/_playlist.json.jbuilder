@@ -1,6 +1,6 @@
-image = asset_path('missing.png')
+image = "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/missing.png"
 unless playlist.songs.empty?
-  image = asset_path(playlist.songs.first.album.image.url)
+  image = playlist.songs.first.album.image_url
 end
 
 json.playlist_detail do
