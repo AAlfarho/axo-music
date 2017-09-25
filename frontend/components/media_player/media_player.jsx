@@ -11,7 +11,8 @@ export default class NavBar extends React.Component {
 
   componentWillReceiveProps(newProps){
     // if( !this.props.playback.collection || !this.state.playing || (
-    if( !this.props.playback.collection || (
+    if( !this.props.playback.collection ||
+      (this.state && this.state.queueFinished) || (
       newProps.playback.collection &&
       newProps.playback.collection.id !== this.props.playback.collection.id
         )){
@@ -26,7 +27,8 @@ export default class NavBar extends React.Component {
     let url = null;
     let playing = false;
     let playingIndex = 0;
-    if(this.state && this.state.playingIndex !== undefined){
+    let queueFinished = false;
+    if(this.state && this.state.playingIndex !== undefined && !queueFinished){
       playingIndex = this.state.playingIndex;
     }
     const collectionToPlay = playback.collection;
@@ -37,6 +39,9 @@ export default class NavBar extends React.Component {
         if(songs[songsToPlay[playingIndex]]){
           url = songs[songsToPlay[playingIndex]].file_path;
           playing = true;
+          queueFinished = false;
+        } else {
+            queueFinished = true;
         }
       }
     }
@@ -50,7 +55,8 @@ export default class NavBar extends React.Component {
       loaded: 0,
       duration: 0,
       playbackRate: 1.0,
-      playingIndex
+      playingIndex,
+      queueFinished
     };
   }
 
@@ -76,11 +82,15 @@ export default class NavBar extends React.Component {
   prevSong() {
     return () => {
       const {songs, playback} = this.props;
-      if (this.state.playingIndex > 0){
+      let prevIndex = this.state.playingIndex - 1;
+      if(prevIndex >= 0 && (this.state.duration * this.state.played) < 3){
         this.setState((prevState) => {
-          return {playingIndex: prevState.playingIndex - 1};
+          return {playingIndex: prevIndex};
         }, () => this.setState(this.setMediaPlayerState(this.props)));
+      } else {
+        this.player.seekTo(0);
       }
+
     };
   }
   playPause(){
@@ -164,7 +174,6 @@ export default class NavBar extends React.Component {
 
     return (
       <div className='media-player-container'>
-        <section className='section'>
           <div className='player-wrapper'>
             <ReactPlayer
               ref={this.ref()}
@@ -189,6 +198,7 @@ export default class NavBar extends React.Component {
               onDuration={duration => this.setState({ duration })}
             />
           </div>
+
 
           <table><tbody>
             <tr>
@@ -230,8 +240,7 @@ export default class NavBar extends React.Component {
               <td><progress max={1} value={loaded} /></td>
             </tr>
           </tbody></table>
-        </section>
-        <section className='section'>
+
           <h2>State</h2>
 
           <table><tbody>
@@ -270,7 +279,7 @@ export default class NavBar extends React.Component {
               <td><Duration seconds={duration * (1 - played)} /></td>
             </tr>
           </tbody></table>
-        </section>
+
       </div>
     );
   }
