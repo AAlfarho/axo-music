@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import MediaInfoItem from '../media_info/media_info_item';
+import MediaInfoContainer from '../media_info/media_info_item_container';
 import SongIndexContainer from '../songs/song_index_container';
 import {PLAYLIST_COLLECTION} from '../../util/constants';
 import {formPLaylistModal} from '../modal/modal_styles';
@@ -66,9 +66,7 @@ export default class PlaylistIndex extends React.Component{
     return(
       <div className="hbox playlist-detail-flex-container">
         <div className="vbox playlist-media-info-container">
-          <MediaInfoItem image_url={playlist.image_url} media_name={playlist.name}
-              media_author={playlist.author_id} media_author_name={playlist.author_name}
-              detail_url={`/user/${playlist.author_id}/playlist/${playlist.id}`}/>
+          <MediaInfoContainer collection={playlist}/>
             {this.updatePlaylistModal()}
             {this.deletePlaylistModal()}
             {

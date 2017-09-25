@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import MediaInfoItem from '../media_info/media_info_item';
+import MediaInfoContainer from '../media_info/media_info_item_container';
 import NewPlaylist from '../playlists/new_playlist';
 import {formPLaylistModal}  from '../modal/modal_styles';
 
@@ -60,13 +60,8 @@ export default class PlaylistIndex extends React.Component{
         <div className="hbox collection-playlist-container">
           {
             this.props.playlists.map(playlist => (
-              <div className="playlist-media-info-item">
-              <MediaInfoItem
-                key={`med-inf-${playlist.id}`} image_url={playlist.image_url}
-                media_name={playlist.name}
-                media_author={playlist.author_id}
-                media_author_name={playlist.author_name}
-                detail_url={`/user/${this.props.userId}/playlist/${playlist.id}`}/>
+              <div className="playlist-media-info-item" key={playlist.id}>
+                <MediaInfoContainer key={`med-inf-${playlist.id}`} collection={playlist}/>
             </div>
             ))
           }
@@ -85,6 +80,7 @@ export default class PlaylistIndex extends React.Component{
           onAfterOpen = {this.toggleNewPlaylistModal}
           onRequestClose = {this.toggleNewPlaylistModal}
           style={formPLaylistModal}
+          contentLabel= "new-playlist"
           >
           <NewPlaylist createPlaylist={this.props.createPlaylist}/>
         </Modal>

@@ -1,20 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+export default class MediaInfoItem extends React.Component {
 
-const MediaInfoItem = (props) => (
-  <div className="vbox media-info-flex-container">
-    <div className="vbox media-info-image-container">
-      <img src={props.image_url} />
-    </div>
-    <div className="vbox media-info-footer">
-      <div className="media-info-link">
-        <Link to={props.detail_url}>{props.media_name}</Link>
-      </div>
-      <div className="media-info-author">
-        By: {props.media_author_name}
-      </div>
-    </div>
-  </div>
-);
+  constructor(props){
+    super(props);
+    this.handleReproduceCollection = this.handleReproduceCollection.bind(this);
+  }
 
-export default MediaInfoItem;
+  handleReproduceCollection(event){
+    event.preventDefault();
+    this.props.reproduceCollection(this.props.collection);
+  }
+
+  render(){
+    return(
+      <div className="vbox media-info-flex-container">
+        <div onClick={this.handleReproduceCollection}
+          className="vbox media-info-image-container">
+          <img src={this.props.image_url} />
+        </div>
+        <div className="vbox media-info-footer">
+          <div className="media-info-link">
+            <Link to={this.props.detail_url}>{this.props.media_name}</Link>
+          </div>
+          <div className="media-info-author">
+            By: {this.props.media_author_name}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
