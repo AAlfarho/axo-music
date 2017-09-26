@@ -11,7 +11,6 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    ##for milestone Song/Playlist CRUD we will only return users authored playlists
     @user = User.includes(:authored_playlists).find(params[:id])
     if @user
       render :show

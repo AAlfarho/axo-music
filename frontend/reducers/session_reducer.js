@@ -6,6 +6,10 @@ import {
   FOLLOW_PLAYLIST,
   UNFOLLOW_PLAYLIST
 } from '../actions/playlist_actions';
+import {
+  FRIEND_USER,
+  UNFRIEND_USER
+} from '../actions/user_actions';
 
 const _nullUser = Object.freeze({currentUser: null});
 
@@ -13,7 +17,7 @@ const SessionReducer = (state = _nullUser, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      const currentUser = action.currentUser;
+      const currentUser = action.currentUser.user_details;
       return merge({}, {currentUser});
       case RECEIVE_PLAYLIST:
       let nextState = merge({},state);
@@ -33,7 +37,6 @@ const SessionReducer = (state = _nullUser, action) => {
       return newState;
     case FOLLOW_PLAYLIST:
       nextState = merge({}, state);
-          debugger;
       const plToFollow = action.playlist.playlist_detail[parseInt(Object.keys(action.playlist.playlist_detail)[0])];
       if(plToFollow.user_follows && state.currentUser.follow_playlists_ids.indexOf(plToFollow.id) === -1){
         nextState.currentUser.follow_playlists_ids.push(plToFollow.id);
@@ -50,7 +53,23 @@ const SessionReducer = (state = _nullUser, action) => {
       }
     }
     return nextState;
-
+    case FRIEND_USER:
+      nextState = merge({}, state);
+      const newFriend = action.user.user_details;
+      if(newFriend.user_friend && state.currentUser.friend_ids.indexOf(newFriend.id) === -1){
+        nextState.currentUser.friend_ids.push(newFriend.id);
+      }
+      return nextState;
+    case UNFRIEND_USER:
+      nextState = merge({}, state);
+      const exFriend = action.user.user_details;
+      if(!exFriend.user_friend){
+        const friendToRemove = state.currentUser.friend_ids.indexOf(exFriend.id);
+        if(friendToRemove !== -1){
+          nextState.currentUser.friend_ids.splice(friendToRemove, 1);
+        }
+      }
+      return nextState;
     default:
       return state;
   }

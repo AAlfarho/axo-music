@@ -11,3 +11,10 @@ export const unfriendUser = (id) => (
     url: `api/unfriend_user/${id}`
   })
 );
+
+export const fetchUser = (id) => (
+  $.ajax({
+    method: 'GET',
+    url: `api/users/${id}`
+  })
+);
