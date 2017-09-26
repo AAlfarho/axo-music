@@ -27,7 +27,9 @@ export default class MediaInfoItem extends React.Component {
             <Link to={this.props.detail_url}>{this.props.media_name}</Link>
           </div>
           <div className="media-info-author">
-            By: {this.props.media_author_name}
+            <Link to={this.props.author_url}>
+              By: {this.props.media_author_name}
+            </Link>
           </div>
         </div>
       </div>

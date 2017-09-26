@@ -37,8 +37,12 @@ export default class PlaylistIndex extends React.Component{
     if(newProps.errors.length === 0){
         this.setState({newPlaylistModalOpen: false});
     }
-    if(this.props.userId !== newProps.userId && this.props.match.params.userId){
-      this.props.fetchUser(this.props.match.params.userId);
+    if(this.props.userId !== newProps.userId){
+      if(newProps.match.params.userId){
+        this.props.fetchUser(newProps.match.params.userId);
+      } else {
+        this.props.fetchPlaylists();
+      }
     }
 
   }

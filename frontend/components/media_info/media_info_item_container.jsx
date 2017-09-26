@@ -12,7 +12,8 @@ const mapStateToProps = (state, {collection}) => {
     media_name: collection.name,
     media_author: collection.author_id,
     media_author_name: collection.author_name,
-    detail_url: `/user/${collection.author_id}/playlist/${collection.id}`
+    detail_url: `/user/${collection.author_id}/playlist/${collection.id}`,
+    author_url: `/user/${collection.author_id}`
   };
 
 };

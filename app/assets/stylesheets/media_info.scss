@@ -48,3 +48,12 @@
 .media-info-author {
   color: grey;
 }
+
+.media-info-author a {
+  text-decoration: none;
+  color: grey;
+}
+
+.media-info-author a:hover{
+  color: #1db954;
+}
