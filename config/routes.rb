@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :searches, only: [:index]
     post 'follow_playlist/:id', to: 'playlist_followships#follow_playlist'
     delete 'unfollow_playlist/:id', to: 'playlist_followships#unfollow_playlist'
-    post 'friend_user/:id', to: 'friendhsips#follow_playlist'
-    delete 'unfriend_user/:id', to: 'friendhsips#unfollow_playlist'
+    post 'friend_user/:id', to: 'friendships#friend_user'
+    delete 'unfriend_user/:id', to: 'friendships#unfriend_user'
   end
 end
