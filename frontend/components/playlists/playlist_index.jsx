@@ -53,7 +53,7 @@ export default class PlaylistIndex extends React.Component{
     return(
       <div className="vbox viewport playlist-index-container">
         <div className="hbox header-container">
-          <div className="collection-playlists-header">
+          <div className="vbox collection-owner-header">
             <UserThumbContainer />
           </div>
           <div className="new-playlist-btn-container">

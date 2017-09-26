@@ -24,6 +24,8 @@
 */
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Abel|Open+Sans:400,400i');
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -39,7 +41,7 @@
 }
 
 body {
-  font-family: 'proxima_nova', sans-serif;
+  font-family: 'Abel', sans-serif;
 }
 
 a, button, img {

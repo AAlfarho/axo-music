@@ -4,17 +4,22 @@
 }
 
 .header-container {
-  height: 100px;
+  height: 180px;
   // border: 1px solid white;
   min-height: 35px;
   padding-right: 15px;
   align-items: flex-start;
   border-bottom: 1px solid #1db954;
   border-radius: 5px;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }
 
-.collection-playlists-header {
+.collection-owner-header {
   color: #929597;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 }
 .new-playlist-container {
   flex: 1;

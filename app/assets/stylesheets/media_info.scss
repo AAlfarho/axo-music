@@ -35,8 +35,12 @@
   justify-content: end;
   align-self: center;
 }
-.media-info-link {
+.media-info-footer a:hover{
+    color: #1db954;
+}
 
+.media-info-link {
+    font-size: 30px;
 }
 
 .media-info-link a {
@@ -46,14 +50,11 @@
 }
 
 .media-info-author {
+  font-family: 'Open Sans', sans-serif;
   color: grey;
 }
 
 .media-info-author a {
   text-decoration: none;
   color: grey;
-}
-
-.media-info-author a:hover{
-  color: #1db954;
 }

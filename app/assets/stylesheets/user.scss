@@ -1,9 +1,33 @@
 .user-thumb-flex-container{
-
+  height: 150px;
 }
 
 .user-thumb-image-container img{
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 100px;
+  cursor: default;
+}
+
+
+.user-thumb-details-container {
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.user-thumb-name-container{
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.user-thumb-actions-cotainer{
+  justify-content: flex-start;
+}
+
+.btn-friend {
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+  font-size: larger;
 }

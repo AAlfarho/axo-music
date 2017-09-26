@@ -24,15 +24,20 @@ export default class UserThumb extends React.Component {
 
   render(){
     const {user, currentUser} = this.props;
+    if(!user.username){
+      return <div></div>;
+    }
     let followButton;
     if(currentUser.id !== user.id){
       if(user.user_friend){
         followButton = (
-          <button onClick={this.handleUnfollowAction}>Unfollow</button>
+          <button className="btn-sm btn-white btn-friend"
+            onClick={this.handleUnfollowAction}>Unfollow</button>
         );
       } else {
         followButton = (
-          <button onClick={this.handleFollowAction}>Follow</button>
+          <button className="btn-sm btn-green btn-friend"
+            onClick={this.handleFollowAction}>Follow</button>
         );
       }
     }
@@ -46,7 +51,7 @@ export default class UserThumb extends React.Component {
           <div className="hbox user-thumb-name-container">
             {user.username}
           </div>
-          <div className="vbox user-thumb-actions-cotainer">
+          <div className="hbox user-thumb-actions-cotainer">
             {followButton}
           </div>
         </div>
