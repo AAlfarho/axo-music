@@ -45,7 +45,7 @@ export default class UserThumb extends React.Component {
     return(
       <div className="hbox user-thumb-flex-container">
         <div className="vbox user-thumb-image-container" >
-          <img src="https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/missing.png" />
+          <img src={user.image_url} />
         </div>
         <div className="vbox user-thumb-details-container">
           <div className="hbox user-thumb-name-container">

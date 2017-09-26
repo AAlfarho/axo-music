@@ -11,9 +11,9 @@
 ############### User seed creation #########################
 ############################################################
 User.destroy_all
-aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password')
-guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password')
-friendly_joe = User.create(username: 'Friendly Joe', email:'friendly@example.com', password: 'password');
+aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/aalfarho_avatar.jpg")
+guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/guest_avatar.png")
+teslium = User.create(username: 'teslium', email:'teslium@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
 
 
 ############################################################
@@ -22,11 +22,11 @@ friendly_joe = User.create(username: 'Friendly Joe', email:'friendly@example.com
 Friendship.destroy_all
 
 ##Friendly joe and guest are friends with everyone
-Friendship.create(user_id: friendly_joe.id, friend_id: aalfarho.id)
-Friendship.create(user_id: friendly_joe.id, friend_id: guest.id)
+Friendship.create(user_id: teslium.id, friend_id: aalfarho.id)
+Friendship.create(user_id: teslium.id, friend_id: guest.id)
 
 Friendship.create(user_id: guest.id, friend_id: aalfarho.id)
-Friendship.create(user_id: guest.id, friend_id: friendly_joe.id)
+Friendship.create(user_id: guest.id, friend_id: teslium.id)
 
 
 ##aalfarho is friends only with guest
@@ -102,14 +102,16 @@ Playlist.create(name: 'In construction...', author_id: aalfarho.id)
 all_indie = Playlist.create(name: 'All Indie', author_id: guest.id)
 Playlist.create(name: 'Empty', author_id: guest.id)
 
-
+#teslium playlist
+alterntive_current = Playlist.create(name: 'Alternative Current', author_id: teslium.id)
 ############################################################
 ################ Playlist-follow seed creation #############
 ############################################################
-##Guest follows 2 of aalfarho's playlists
+##Guest follows 2 of aalfarho's playlists and teslium
 PlaylistFollowship.destroy_all
 PlaylistFollowship.create(playlist_id: this_is_diiv.id, user_id: guest.id)
 PlaylistFollowship.create(playlist_id: this_is_beach_fossils.id, user_id: guest.id)
+PlaylistFollowship.create(playlist_id: alterntive_current.id, user_id: guest.id)
 
 ##aalfarho follows only the non-empty playlist form guest
 PlaylistFollowship.create(playlist_id: all_indie.id, user_id: aalfarho.id)
@@ -119,12 +121,18 @@ PlaylistFollowship.create(playlist_id: all_indie.id, user_id: aalfarho.id)
 ################ Playlist-song seed creation ###############
 ############################################################
 PlaylistSong.destroy_all
-diiv.songs.each do |song|
-  PlaylistSong.create(playlist_id: this_is_diiv.id, song_id: song.id)
-  PlaylistSong.create(playlist_id: all_indie.id, song_id: song.id)
+diiv.songs.each_with_index do |song, idx|
+  if idx.odd?
+    PlaylistSong.create(playlist_id: this_is_diiv.id, song_id: song.id)
+  else
+    PlaylistSong.create(playlist_id: all_indie.id, song_id: song.id)
+  end
 end
 
-beach_fossils.songs.each do |song|
-  PlaylistSong.create(playlist_id: this_is_beach_fossils.id, song_id: song.id)
-  PlaylistSong.create(playlist_id: all_indie.id, song_id: song.id)
+beach_fossils.songs.each_with_index do |song, idx|
+  if idx.odd?
+    PlaylistSong.create(playlist_id: this_is_beach_fossils.id, song_id: song.id)
+  else
+    PlaylistSong.create(playlist_id: all_indie.id, song_id: song.id)
+  end
 end

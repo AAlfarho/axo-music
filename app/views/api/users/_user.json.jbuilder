@@ -6,6 +6,7 @@ json.user_details do
   json.follow_playlists_ids user.playlist_followed.pluck(:id)
   json.playlists_ids user.authored_playlists.pluck(:id)
   json.friend_ids user.friends.pluck(:id)
+  json.image_url user.img_url || "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/missing.png"
   if current_user && current_user.friends
     json.user_friend current_user.friends.pluck(:id).include?(user.id)
   end
@@ -20,6 +21,7 @@ json.friends_details do
       json.follow_playlists_ids friend.playlist_followed.pluck(:id)
       json.playlists_ids friend.authored_playlists.pluck(:id)
       json.friend_ids friend.friends.pluck(:id)
+      json.image_url user.img_url || "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/missing.png"
       if current_user && current_user.friends
         json.user_friend current_user.friends.pluck(:id).include?(friend.id)
       end
