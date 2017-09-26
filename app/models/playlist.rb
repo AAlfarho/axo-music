@@ -17,7 +17,7 @@ class Playlist < ApplicationRecord
   foreign_key: :author_id,
   class_name: :User
 
-  has_many :playlist_song_memberships,
+  has_many :playlist_song_memberships, ->{order('playlist_songs.created_at asc')},
   primary_key: :id,
   foreign_key: :playlist_id,
   class_name: :PlaylistSong,

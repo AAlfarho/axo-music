@@ -5,7 +5,7 @@ import {logout} from '../../actions/session_actions.js';
 import {
   fetchPlaylists,
   fetchPlaylist,
-  createPlaylist,
+  createPlaylist
 } from '../../actions/playlist_actions.js';
 import {
   fetchUser
@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
         if(state.playlists[id]){
           playlists.push(state.playlists[id]);
         }
-      });      
+      });
     }
   }
 

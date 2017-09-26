@@ -6,7 +6,9 @@ import {
   fetchPlaylists,
   fetchPlaylist,
   updatePlaylist,
-  deletePlaylist
+  deletePlaylist,
+  followPlaylist,
+  unfollowPlaylist
 } from '../../actions/playlist_actions.js';
 import PlaylistDetail from './playlist_detail';
 
@@ -35,7 +37,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispacthToProps = (dispatch) => ({
   fetchPlaylist: (id) => dispatch(fetchPlaylist(id)),
   updatePlaylist: (playlist) => dispatch(updatePlaylist(playlist)),
-  deletePlaylist: (id) => dispatch(deletePlaylist(id))
+  deletePlaylist: (id) => dispatch(deletePlaylist(id)),
+  followPlaylist: (id) => dispatch(followPlaylist(id)),
+  unfollowPlaylist: (id) => dispatch(unfollowPlaylist(id))
 });
 
 export default withRouter(

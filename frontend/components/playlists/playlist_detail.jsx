@@ -63,21 +63,38 @@ export default class PlaylistIndex extends React.Component{
 
   render(){
     const {playlist, songs} = this.props;
+    let buttonsToDisplay;
+    if(playlist.user_owns){
+      buttonsToDisplay = (
+        <div className="hbox playlist-owner-actions">
+          <button className="btn-sm btn-green btn-owner-actions-pl"
+          onClick={this.toggleUpdatePlaylistModal}>Rename</button>
+          <button className="btn-sm btn-white btn-owner-actions-pl"
+          onClick={this.toggleDeletePlaylistModal}>Delete</button>
+        </div>
+      );
+    } else {
+      if(!playlist.user_follows){
+        buttonsToDisplay = (<div className="hbox playlist-followee-actions">
+          <button className="btn-sm btn-green btn-owner-actions-pl"
+          onClick={() => this.props.followPlaylist(playlist.id)}>Follow</button>
+      </div>);
+      } else {
+      buttonsToDisplay = (
+        <div className="hbox playlist-followee-actions">
+          <button className="btn-sm btn-white btn-owner-actions-pl"
+            onClick={() => this.props.unfollowPlaylist(playlist.id)}>Unfollow</button>
+        </div>
+      ) ;
+      }
+    }
     return(
       <div className="hbox playlist-detail-flex-container">
         <div className="vbox playlist-media-info-container">
           <MediaInfoContainer collection={playlist}/>
             {this.updatePlaylistModal()}
             {this.deletePlaylistModal()}
-            {
-              playlist.user_owns &&
-              <div className="hbox playlist-owner-actions">
-                <button className="btn-sm btn-green btn-owner-actions-pl"
-                  onClick={this.toggleUpdatePlaylistModal}>Rename</button>
-                <button className="btn-sm btn-white btn-owner-actions-pl"
-                  onClick={this.toggleDeletePlaylistModal}>Delete</button>
-              </div>
-            }
+            {buttonsToDisplay}
 
         </div>
 
@@ -101,6 +118,7 @@ export default class PlaylistIndex extends React.Component{
         onAfterOpen = {this.toggleUpdatePlaylistModal}
         onRequestClose = {this.toggleUpdatePlaylistModal}
         style={formPLaylistModal}
+        contentLabel="update-pl"
         >
         <UpdatePlaylist updatePlaylist={this.props.updatePlaylist} playlist={this.props.playlist}/>
       </Modal>
