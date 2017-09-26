@@ -3,7 +3,8 @@ export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const REMOVE_PLAYLIST = "REMOVE_PLAYLIST";
 export const RECEIVE_PLAYLIST_ERRORS = "RECEIVE_PLAYLIST_ERRORS";
-
+export const FOLLOW_PLAYLIST = "FOLLOW_PLAYLIST";
+export const UNFOLLOW_PLAYLIST = "UNFOLLOW_PLAYLIST";
 ////////////////////////////////////////
 ///////////action creators/////////////
 //////////////////////////////////////
@@ -25,6 +26,16 @@ export const removePlaylist = playlist => ({
 export const receivePlaylistErrors = errors => ({
   type: RECEIVE_PLAYLIST_ERRORS,
   errors
+});
+
+export const receiveFollowPlaylist = playlist => ({
+  type: FOLLOW_PLAYLIST,
+  playlist
+});
+
+export const receiveUnfollowPlaylist = playlist => ({
+  type: UNFOLLOW_PLAYLIST,
+  playlist
 });
 
 ////////////////////////////////////////
@@ -66,6 +77,20 @@ export const deletePlaylist = (id) => dispatch => (
   PlaylistAPIUtil.deletePlaylist(id)
   .then(
     playlist => dispatch(removePlaylist(playlist)),
+    errors => dispatch(receivePlaylistErrors(errors.responseJSON))
+  )
+);
+
+export const followPlaylist = (id) => dispatch => (
+  PlaylistAPIUtil.followPlaylist(id).then(
+    playlist => dispatch(receiveFollowPlaylist(playlist)),
+    errors => dispatch(receivePlaylistErrors(errors.responseJSON))
+  )
+);
+
+export const unfollowPlaylist = (id) => dispatch => (
+  PlaylistAPIUtil.unfollowPlaylist(id).then(
+    playlist => dispatch(receiveUnfollowPlaylist(playlist)),
     errors => dispatch(receivePlaylistErrors(errors.responseJSON))
   )
 );

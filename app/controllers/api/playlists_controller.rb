@@ -5,6 +5,7 @@ class Api::PlaylistsController < ApplicationController
 
   def index
     @current_user_authored_playlists = current_user.authored_playlists.includes(:songs)
+    @current_user_follows = current_user.playlist_followed.includes(:songs)
     render :index
   end
 

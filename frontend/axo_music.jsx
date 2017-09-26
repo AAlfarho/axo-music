@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import * as PlaylistActions from './actions/playlist_actions';
 import * as PlaylistAPIUtil from './util/playlist_api_util';
+import * as FriendshipAPIUtil from './util/friendship_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store = store;
   window.PlaylistActions = PlaylistActions;
   window.PlaylistAPIUtil = PlaylistAPIUtil;
+  window.FriendhsipAPIUtil = FriendshipAPIUtil;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
