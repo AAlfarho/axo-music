@@ -20,16 +20,20 @@ const mapStateToProps = (state, ownProps) => {
     userToDisplayPlaylsits = state.users[ownProps.match.params.userId];
   }
   if(userToDisplayPlaylsits){
-    userToDisplayPlaylsits.playlists_ids.forEach(id => {
-      if(state.playlists[id]) {
-        playlists.push(state.playlists[id]);
-      }
-    });
-    userToDisplayPlaylsits.follow_playlists_ids.forEach(id => {
-      if(state.playlists[id]){
-        playlists.push(state.playlists[id]);
-      }
-    });
+    if(userToDisplayPlaylsits.playlists_ids){
+      userToDisplayPlaylsits.playlists_ids.forEach(id => {
+        if(state.playlists[id]) {
+          playlists.push(state.playlists[id]);
+        }
+      });
+    }
+    if(userToDisplayPlaylsits.follow_playlists_ids){
+      userToDisplayPlaylsits.follow_playlists_ids.forEach(id => {
+        if(state.playlists[id]){
+          playlists.push(state.playlists[id]);
+        }
+      });      
+    }
   }
 
   return {

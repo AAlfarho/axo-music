@@ -8,7 +8,7 @@ import * as UserActions from './actions/user_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
-  if (window.currentUser.user_details) {
+  if (window.currentUser && window.currentUser.user_details) {
     const preloadedState = { session: { currentUser: window.currentUser.user_details } };
     const users = {};
     if(window.currentUser.friend_details){

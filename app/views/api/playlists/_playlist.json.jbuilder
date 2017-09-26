@@ -8,8 +8,10 @@ json.playlist_detail do
     json.extract! playlist, :id, :name, :author_id
     json.author_name playlist.author.username
     json.song_ids playlist.songs.pluck(:id)
-    json.user_owns playlist.author_id == current_user.id
-    json.user_follows current_user.playlist_followed.pluck(:id).include?(playlist.id)
+    if current_user
+      json.user_owns playlist.author_id == current_user.id
+      json.user_follows current_user.playlist_followed.pluck(:id).include?(playlist.id)
+    end
     json.image_url image
   end
 end

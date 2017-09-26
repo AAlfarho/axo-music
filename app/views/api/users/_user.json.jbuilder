@@ -6,7 +6,9 @@ json.user_details do
   json.follow_playlists_ids user.playlist_followed.pluck(:id)
   json.playlists_ids user.authored_playlists.pluck(:id)
   json.friend_ids user.friends.pluck(:id)
-  json.user_friend current_user.friends.pluck(:id).include?(user.id)
+  if current_user && current_user.friends
+    json.user_friend current_user.friends.pluck(:id).include?(user.id)
+  end
 end
 
 json.friends_details do
@@ -18,7 +20,9 @@ json.friends_details do
       json.follow_playlists_ids friend.playlist_followed.pluck(:id)
       json.playlists_ids friend.authored_playlists.pluck(:id)
       json.friend_ids friend.friends.pluck(:id)
-      json.user_friend current_user.friends.pluck(:id).include?(friend.id)
+      if current_user && current_user.friends
+        json.user_friend current_user.friends.pluck(:id).include?(friend.id)
+      end
     end
   end
 end

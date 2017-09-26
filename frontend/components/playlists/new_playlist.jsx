@@ -61,7 +61,7 @@ export default class NewPlaylist extends React.Component {
         <div className="hbox new-playlist-input">
           <input id="playlist-input" type="text" className="modal-input-dark" value={playlistName}
             onChange={this.handleChange('playlistName')}
-            placeholder="Start typing..." autofocus/>
+            placeholder="Start typing..."/>
         </div>
         <div name="new-playlist-actions">
           <button id="add-button" className="btn-sm btn-xl-create-pl btn-green" onClick={this.handlePlaylistCreation}>Create</button>

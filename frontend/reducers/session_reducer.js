@@ -17,8 +17,13 @@ const SessionReducer = (state = _nullUser, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      const currentUser = action.currentUser.user_details;
-      return merge({}, {currentUser});
+      let currentUser = action.currentUser;
+      if(currentUser){
+        currentUser = currentUser.user_details;
+        return merge({}, {currentUser});
+      } else {
+        return merge({}, {currentUser});
+      }
       case RECEIVE_PLAYLIST:
       let nextState = merge({},state);
       const playlist = action.playlist.playlist_detail[parseInt(Object.keys(action.playlist.playlist_detail)[0])];

@@ -13,9 +13,11 @@ const UsersReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
     nextState = merge({}, state);
     const friendDetails = action.friends_details;
-    Object.values(friendDetails).forEach(user => {
-      nextState[user.id] = user;
-    });
+    if(friendDetails){
+      Object.values(friendDetails).forEach(user => {
+        nextState[user.id] = user;
+      });
+    }
     return nextState;
     case RECEIVE_USER:
     case FRIEND_USER:
