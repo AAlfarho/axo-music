@@ -4,16 +4,16 @@
 }
 
 .header-container {
-  height: 15%;
+  height: 100px;
   // border: 1px solid white;
   min-height: 35px;
   padding-right: 15px;
   align-items: flex-start;
+  border-bottom: 1px solid #1db954;
+  border-radius: 5px;
 }
 
 .collection-playlists-header {
-  align-self: center;
-  margin: 0 auto;
   color: #929597;
 }
 .new-playlist-container {

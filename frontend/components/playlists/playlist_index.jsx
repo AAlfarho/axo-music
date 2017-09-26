@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import MediaInfoContainer from '../media_info/media_info_item_container';
 import NewPlaylist from '../playlists/new_playlist';
 import {formPLaylistModal}  from '../modal/modal_styles';
+import UserThumbContainer from '../user/user_thumb_container';
 
 export default class PlaylistIndex extends React.Component{
   constructor(props){
@@ -48,14 +49,12 @@ export default class PlaylistIndex extends React.Component{
   }
 
   render(){
-    const {userId, currentUser} = this.props;
+    const {userId, currentUser, user} = this.props;
     return(
       <div className="vbox viewport playlist-index-container">
         <div className="hbox header-container">
           <div className="collection-playlists-header">
-            <h1>
-              Playlists on {this.props.user.username} collection
-            </h1>
+            <UserThumbContainer />
           </div>
           <div className="new-playlist-btn-container">
             {

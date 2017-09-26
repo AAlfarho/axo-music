@@ -15,9 +15,13 @@ import PlaylistIndex from './playlist_index';
 const mapStateToProps = (state, ownProps) => {
   let playlists = [];
   let userToDisplayPlaylsits = state.session.currentUser;
-  if(ownProps.match.path !== '/collection/playlists' && ownProps.match.params.userId
-  && state.users[ownProps.match.params.userId]){
+  if(ownProps.match.path !== '/collection/playlists' && ownProps.match.params.userId){
     userToDisplayPlaylsits = state.users[ownProps.match.params.userId];
+    if(!userToDisplayPlaylsits){
+      userToDisplayPlaylsits = {
+        id: ownProps.match.params.userId
+      };
+    }
   }
   if(userToDisplayPlaylsits){
     if(userToDisplayPlaylsits.playlists_ids){
