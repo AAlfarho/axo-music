@@ -25,7 +25,10 @@ export default class PlaylistIndex extends React.Component{
 
   componentWillMount(){
     const {userId, currentUser} = this.props;
-    if(userId === currentUser.id){
+    if(this.props.match.params.userId &&
+        this.props.match.params.userId !== currentUser.id){
+        this.props.fetchUser(this.props.match.params.userId);
+    } else if(userId === currentUser.id){
       this.props.fetchPlaylists();
     }
   }
@@ -34,19 +37,27 @@ export default class PlaylistIndex extends React.Component{
     if(newProps.errors.length === 0){
         this.setState({newPlaylistModalOpen: false});
     }
+    if(this.props.userId !== newProps.userId && this.props.match.params.userId){
+      this.props.fetchUser(this.props.match.params.userId);
+    }
+
   }
 
   render(){
+    const {userId, currentUser} = this.props;
     return(
       <div className="vbox viewport playlist-index-container">
         <div className="hbox header-container">
           <div className="collection-playlists-header">
             <h1>
-              Playlists
+              Playlists on {this.props.user.username} collection
             </h1>
           </div>
           <div className="new-playlist-btn-container">
-            <button className="btn-sm btn-green btn-new-pl" onClick={this.toggleNewPlaylistModal}> New Playlist </button>
+            {
+              (this.props.match.params.userId && currentUser.id === this.props.match.params.userId) || userId === currentUser.id &&
+              <button className="btn-sm btn-green btn-new-pl" onClick={this.toggleNewPlaylistModal}> New Playlist </button>
+            }
           </div>
         </div>
 

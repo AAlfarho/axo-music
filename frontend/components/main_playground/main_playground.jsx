@@ -8,8 +8,10 @@ const MainPlayground = () => (
   <div className="vbox viewport">
     <Switch>
       <ProtectedRoute path="/collection/playlists" component={PlaylistIndexContainer} />
-      <ProtectedRoute path="/user/:userId/playlist/:playlistId"
+      <ProtectedRoute exact path="/user/:userId/playlist/:playlistId"
                       component={PlaylistDetailContainer} />
+
+      <ProtectedRoute exact path="/user/:userId"             component={PlaylistIndexContainer} />
       <ProtectedRoute path="/" component={PlaylistIndexContainer} />
     </Switch>
   </div>

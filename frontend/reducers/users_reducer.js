@@ -24,9 +24,11 @@ const UsersReducer = (state = {}, action) => {
       const user = action.user.user_details;
       const userFriends = action.user.friends_details;
       nextState[user.id] = user;
-      Object.values(userFriends).forEach(friend => {
-        nextState[friend.id] = friend;
-      });
+      if(userFriends){
+        Object.values(userFriends).forEach(friend => {
+          nextState[friend.id] = friend;
+        });
+      }
       return nextState;
     default:
     return state;
