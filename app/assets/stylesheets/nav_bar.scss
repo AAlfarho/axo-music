@@ -35,6 +35,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .nav-container a:visited{
@@ -70,6 +71,10 @@
   cursor: pointer;
 }
 
+.playlist-container:hover, .search-container:hover, .nav-brand-logo:hover{
+  color: #1db954;
+}
+
 .playlist-container-navlink {
   width: 100%;
   justify-content: space-around;
@@ -77,4 +82,8 @@
 
 .playlist-container:active{
   color: #1db954;
+}
+
+.nav-brand-logo {
+  cursor: pointer;
 }

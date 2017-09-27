@@ -7,26 +7,29 @@ export default class NavBar extends React.Component {
     super(props);
 
     this.handlePlaylistClick = this.handlePlaylistClick.bind(this);
+    this.handleSearchClick = this.handleSearchClick.bind(this);
   }
 
   handlePlaylistClick(){
     this.props.history.push("/collection/playlists");
   }
 
+  handleSearchClick(){
+    this.props.history.push('/search/');
+  }
+
   render(){
     return(
       <div className="vbox nav-container">
         <div className="vbox nav-action-container">
-          <div className="hbox nav-brand-logo">
-            <NavLink to="/">
+          <div onClick={this.handlePlaylistClick} className="hbox nav-brand-logo">
               <i className="fa fa-spotify fa-2x" ></i>
-            </NavLink>
             <div>
               <i className="fa fa-spotifyasd" aria-hidden="true"></i>
             </div>
-           </div>
+          </div>
            <LineSeparator />
-          <div className="hbox search-container">
+          <div onClick={this.handleSearchClick} className="hbox search-container">
             <div className="search-text">
               Search
             </div>

@@ -6,7 +6,9 @@ import {
   fetchPlaylists
 } from '../../actions/playlist_actions.js';
 import SongIndex from './song_index';
-import {PLAYLIST_COLLECTION} from '../../util/constants';
+import {
+  PLAYLIST_COLLECTION
+} from '../../util/constants';
 
 const mapStateToProps = (state, ownProps) => {
   const {collectionType, collection, songs} = ownProps;
