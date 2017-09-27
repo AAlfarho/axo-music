@@ -70,3 +70,46 @@
 .user-mini-image:hover img {
   opacity: 0.2
 }
+
+
+.current-user-flex-container{
+  // border: 1px solid pink;
+  justify-content: flex-start;
+  color: #a5a4a5;
+}
+
+.current-user-image {
+  // border: 1px solid white;
+}
+
+.current-user-image img {
+  width: 50px;
+  height: 50px;
+  cursor: default;
+  border-radius: 100px;
+}
+
+.current-user-details{
+  // border: 1px solid yellow;
+  width: 100%;
+  justify-content: space-around;
+  margin-left: 5px;
+}
+
+
+.current-user-name{
+  // border: 1px solid red;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.current-user-logout-action{
+  // border: 1px solid green;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.current-user-logout-action:hover{
+  color: #1db954;
+}

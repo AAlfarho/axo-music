@@ -53,10 +53,11 @@
   color: #a5a4a5;
 }
 .user-container {
-  height: 80px;
+  height: 65px;
   width: 100%;
-  border: 1px solid yellow;
+  // border: 1px solid yellow;
   margin-top: 10px;
+  justify-content: space-between;
 }
 .search-logo {
   align-self: flex-end;

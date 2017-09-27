@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LineSeparator from '../util/line_separator';
+import CurrentUser from '../user/current_user';
 
 export default class NavBar extends React.Component {
   constructor(props){
@@ -19,6 +20,7 @@ export default class NavBar extends React.Component {
   }
 
   render(){
+    const {currentUser} = this.props;
     return(
       <div className="vbox nav-container">
         <div className="vbox nav-action-container">
@@ -48,10 +50,9 @@ export default class NavBar extends React.Component {
 
         </div>
 
-        <div className="user-container">
-          <LineSeparator />
-          currentUser comp
-          <button onClick={() => this.props.logout()}>log out</button>
+        <LineSeparator />
+        <div className="vbox user-container">
+          <CurrentUser currentUser={currentUser} logout={this.props.logout}/>
         </div>
 
       </div>
