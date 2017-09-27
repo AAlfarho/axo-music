@@ -9,7 +9,7 @@
   border-bottom: 2px solid #1db954;
   border-radius: 5px;
   margin-bottom: 30px;
-  height: 250px;
+  height: 230px;
 }
 
 .results-flex-container {
@@ -20,13 +20,23 @@
 }
 
 .input-label-container{
-  font-size: 30px;
+  font-size: 20px;
   margin-left: 15px;
   margin-top: 30px;
+  margin-bottom: 10px
 }
 
 .results-flex-container {
-  height: 100%;
+  height: 90%;
   width: 100%;
   overflow-y: scroll;
+}
+
+.no-result-flex-container{
+  justify-content: center;
+}
+
+.no-result-sad-smiley {
+  align-self: center;
+  font-size: 15em;
 }
