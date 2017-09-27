@@ -22,6 +22,7 @@
 *= require media_player
 *= require user
 *= require search
+*= require user_song_tab
 */
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -43,6 +44,7 @@
 
 body {
   font-family: 'Abel', sans-serif;
+  caret-color: #1db954;
 }
 
 a, button, img {
@@ -173,7 +175,7 @@ h3 {
 }
 
 input:focus {
-  border: 3px solid #1db954;
+  // border: 3px solid #1db954;
 }
 
 ///http://bl.ocks.org/jfsiii/5380802
@@ -200,6 +202,8 @@ html, body, .viewport {
   border: 0;
   color: white;
   font-size: 90px;
+  padding-left: 10px;
+  outline: none;
 }
 
 .new-playlist-actions{

@@ -75,6 +75,7 @@ export default class SongItem extends React.Component{
         onAfterOpen = {this.toggleSongOptModal}
         onRequestClose = {this.toggleSongOptModal}
         style={formPLaylistModal}
+        contentLabel="song-opt-modal"
         >
         <div className="vbox delete-playlist-flex-container">
           <div className="new-playlist-title">
@@ -98,6 +99,7 @@ export default class SongItem extends React.Component{
         onAfterOpen = {this.toggleAddSongModal}
         onRequestClose = {this.toggleAddSongModal}
         style={formPLaylistModal}
+        contentLabel="add-to-pl-modal"
         >
         <AddToPlaylistCont song_id={this.props.song.id}/>
       </Modal>
@@ -116,10 +118,10 @@ export default class SongItem extends React.Component{
           </div>
 
           <div className="hbox song-details">
-            <div>
+            <div className="song-detail-artist-name">
               Artist: {song.artist_name}
             </div>
-            <div>
+            <div className="song-detail-album-name">
               Album: {song.album_name}
             </div>
             <div className="hbox song-left-details">

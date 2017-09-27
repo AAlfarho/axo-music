@@ -1,17 +1,32 @@
 .search-root-flex-container {
   color: #a5a4a5;
-  padding-top: 20px;
+  height: 100%;
 }
 
 
 .search-input-flex-container {
-  border: 1px solid green;
+  background-color: #282828;
+  border-bottom: 2px solid #1db954;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  height: 250px;
 }
 
 .results-flex-container {
-  border: 1px solid green;
 }
 
 .input-field-container {
   width: 100%
+}
+
+.input-label-container{
+  font-size: 30px;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.results-flex-container {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
 }

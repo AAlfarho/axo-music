@@ -10,25 +10,26 @@ const UserSongTabs = (props) => {
       name: 'Search'
     };
     return(
-      <Tabs>
-        <TabList>
-          <Tab>Songs</Tab>
-          <Tab>User</Tab>
-        </TabList>
-
-        <TabPanel>
-          <SongIndexContainer
-            collectionType={SEARCH_COLLECTION}
-            songs={props.songs}
-            showDelete={false}
-            collection={searchCollection}
-            />
-        </TabPanel>
-        <TabPanel>
-          {
-            props.users.map(user => <UserMini user={user} />)
-          }
-        </TabPanel>
+      <Tabs className="vbox tab-flex-container">
+          <TabList className="hbox tab-title-flex-container">
+              <Tab className="vbox tab-title-item">Songs</Tab>
+              <Tab className="vbox tab-title-item">User</Tab>
+          </TabList>
+        <div className="result-tab-panel-flex">
+          <TabPanel className="songs-result-tab">
+            <SongIndexContainer
+              collectionType={SEARCH_COLLECTION}
+              songs={props.songs}
+              showDelete={false}
+              collection={searchCollection}
+              />
+          </TabPanel>
+          <TabPanel className="users-result-tab">
+            {
+              props.users.map(user => <UserMini user={user} />)
+            }
+          </TabPanel>
+        </div>
       </Tabs>
     );
 };

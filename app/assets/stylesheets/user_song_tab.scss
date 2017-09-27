@@ -1,0 +1,35 @@
+.tab-flex-container{
+  width: 100%;
+  justify-content: flex-start;
+  height: 100px;
+
+}
+
+.tab-title-flex-container{
+  font-size: 50px;
+  justify-content: space-evenly;
+  // border: 1px solid white;
+  min-height: 100px;
+}
+
+.result-tab-panel-flex {
+  // border: 1px solid yellow;
+  padding-left: 10px;
+  min-height: 100px;
+}
+
+.tab-title-item{
+  justify-content: center;
+}
+
+.react-tabs__tab--selected {
+  color: #1db954;
+}
+
+.songs-result-tab{
+  // border: 1px solid white;
+}
+
+.users-result-tab{
+  // border: 1px solid pink;
+}
