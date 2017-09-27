@@ -24,7 +24,7 @@ const UserSongTabs = (props) => {
               collection={searchCollection}
               />
           </TabPanel>
-          <TabPanel className="users-result-tab">
+          <TabPanel className="hbox users-result-tab">
             {
               props.users.map(user => <UserMini user={user} />)
             }

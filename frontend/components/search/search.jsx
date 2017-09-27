@@ -1,6 +1,7 @@
 import React from 'react';
 import * as SearchAPIUtil from '../../util/search_api_util';
 import UserSongTabs from './user_song_tabs';
+import _ from 'lodash';
 
 export default class Search extends React.Component {
   constructor(props){
@@ -15,6 +16,16 @@ export default class Search extends React.Component {
 
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+  }
+
+  componentDidMount(){
+    document.getElementById('search-input').focus();
+    document.getElementById("search-input")
+    .addEventListener("keyup", (event) => {
+      event.preventDefault();
+      _.debounce(() => this.handleSearch(), 5000);
+    });
+
   }
 
   handleSearch(){
@@ -38,13 +49,24 @@ export default class Search extends React.Component {
 
   handleSearchInputChange(event){
     event.preventDefault();
-    this.setState({
-      query: event.target.value
-    });
+    if(!event.target.value){
+      this.setState({
+        query: '',
+        results: {
+          songs:{},
+          users:{}
+        }
+      });
+    } else {
+      this.setState({
+        query: event.target.value
+      });
+    }
   }
 
   render(){
     const {users, songs} = this.state.results;
+    //          <button onClick={this.handleSearch}>temp search</button>
     return(
       <div className="vbox search-root-flex-container">
         <div className="vbox search-input-flex-container">
@@ -52,11 +74,10 @@ export default class Search extends React.Component {
             Search for song or user
           </div>
           <div className="hbox input-field-container">
-            <input onChange={this.handleSearchInputChange}
+            <input id="search-input" onChange={this.handleSearchInputChange}
               className="modal-input-dark" placeholder="Start typing..."
               value={this.state.query}></input>
           </div>
-          <button onClick={this.handleSearch}>temp search</button>
         </div>
 
         <div className="vbox results-flex-container">

@@ -15,6 +15,10 @@ aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', passw
 guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/guest_avatar.png")
 teslium = User.create(username: 'teslium', email:'teslium@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
 
+5.times do |idx|
+  User.create(username: "teslium#{idx}", email:"teslium#{idx}@example.com", password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
+end
+
 
 ############################################################
 ################ Friendhsip seed creation ##################

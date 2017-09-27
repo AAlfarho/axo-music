@@ -32,3 +32,37 @@
   margin: 10px;
   font-size: larger;
 }
+
+.user-mini-image img{
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+}
+.user-mini-image {
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.user-mini-details {
+  justify-content: center;
+  border: 1px solid green;
+  width: 250px;
+  margin-left: 20px;
+}
+
+.user-mini-username {
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.mini-user-display {
+  border: 1px solid yellow;
+  justify-content: center;
+  width: 400px;
+  padding: 15px;
+}
+
+.user-mini-pl-details {
+  font-family: 'Open Sans', sans-serif;
+}
