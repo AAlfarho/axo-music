@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 export default class UserMini extends React.Component{
   constructor(props){
     super(props);
@@ -10,7 +10,9 @@ export default class UserMini extends React.Component{
     return(
       <div className="hbox mini-user-display">
         <div className="vbox user-mini-image">
-          <img src={user.image_url} />
+          <Link to={`/user/${user.id}`}>
+            <img src={user.image_url} />
+          </Link>
         </div>
         <div className="vbox user-mini-details">
           <div className="user-mini-username">

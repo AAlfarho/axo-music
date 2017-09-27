@@ -18,12 +18,16 @@ export default class Search extends React.Component {
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
   }
 
+  componenWillReceiveProps(){
+    document.getElementById('search-input').focus();
+  }
+
   componentDidMount(){
     document.getElementById('search-input').focus();
     document.getElementById("search-input")
     .addEventListener("keyup", (event) => {
       event.preventDefault();
-      _.debounce(() => this.handleSearch(), 5000);
+      // _.debounce(() => this.handleSearch(), 5000);
     });
 
   }
@@ -60,7 +64,7 @@ export default class Search extends React.Component {
     } else {
       this.setState({
         query: event.target.value
-      });
+      }, () => this.handleSearch()); // TODO look into 500ms debounce
     }
   }
 

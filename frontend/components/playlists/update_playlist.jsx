@@ -22,7 +22,7 @@ export default class UpdatePlaylist extends React.Component {
     if (event.keyCode == 13) {
         document.getElementById("update-button").click();
     }
-});
+    });
   }
 
   handleTitleChange(event){

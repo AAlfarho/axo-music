@@ -13,7 +13,7 @@ const UserSongTabs = (props) => {
       <Tabs className="vbox tab-flex-container">
           <TabList className="hbox tab-title-flex-container">
               <Tab className="vbox tab-title-item">Songs</Tab>
-              <Tab className="vbox tab-title-item">User</Tab>
+              <Tab className="vbox tab-title-item">Users</Tab>
           </TabList>
         <div className="result-tab-panel-flex">
           <TabPanel className="songs-result-tab">
