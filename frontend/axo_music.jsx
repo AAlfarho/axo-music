@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import * as PlaylistActions from './actions/playlist_actions';
 import * as PlaylistAPIUtil from './util/playlist_api_util';
+import * as SearchAPIUtil from './util/search_api_util';
 import * as UserActions from './actions/user_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.PlaylistActions = PlaylistActions;
   window.PlaylistAPIUtil = PlaylistAPIUtil;
   window.UserActions = UserActions;
+  window.SearchAPIUtil = SearchAPIUtil;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
