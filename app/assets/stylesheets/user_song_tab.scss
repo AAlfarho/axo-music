@@ -2,14 +2,16 @@
   width: 100%;
   justify-content: flex-start;
   height: 100px;
-
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 .tab-title-flex-container{
   font-size: 50px;
-  justify-content: space-evenly;
+  // justify-content: space-evenly;
   // border: 1px solid white;
   min-height: 100px;
+  width: 100%
 }
 
 .result-tab-panel-flex {
@@ -21,11 +23,14 @@
 .tab-title-item{
   justify-content: center;
   cursor: pointer;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .react-tabs__tab--selected {
   color: #1db954;
-    border-bottom: 2px solid #959393;
+    border-bottom: 1px solid #1db954;
     border-radius: 5px;
 }
 

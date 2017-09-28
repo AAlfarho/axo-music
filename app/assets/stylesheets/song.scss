@@ -24,30 +24,35 @@
   font-size: 20px;
 }
 
-.song-left-details{
-}
 
 .song-detail-items {
-  width: 100%
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .song-title-container{
   align-self: flex-start;
   flex: 1;
+  color: white;
 }
 
 .song-details {
   justify-content: space-between;
+  font-size: medium;
 
 }
-.song-left-details {
+.song-right-details {
   margin-right: 10px;
   justify-content: space-between;
-  width: 10%;
+  width: 25%;
 }
 
 .pl-detail-delete-song:hover{
   color: red;
+}
+
+.pl-detail-add-song {
+  align-self: flex-start;
 }
 
 .pl-detail-delete-song, .pl-detail-add-song {
@@ -63,5 +68,14 @@
 }
 
 .song-detail-artist-name{
-      width: 10%;
+  width: 10%;
+  justify-content: center;
+}
+
+.song-detail-album-name{
+  justify-content: center;
+}
+
+.duration-detail{
+  justify-content: center;
 }
