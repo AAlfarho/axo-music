@@ -128,15 +128,17 @@ export default class SongItem extends React.Component{
               <div className="vbox duration-detail">
                 {secondsTimeSpanToHMS(song.length)}
               </div>
-              <div className="vbox pl-detail-add-song" onClick={this.toggleAddSongModal}>
-                <i className="fa fa-plus-square-o fa-2x"></i>
-              </div>
-              {
-                showDelete &&
-                <div className="vbox pl-detail-delete-song" onClick={this.toggleSongOptModal}>
-                  <i className="fa fa-minus-square-o fa-2x"></i>
+              <div className="hbox menu-options">
+                <div className="vbox pl-detail-add-song" onClick={this.toggleAddSongModal}>
+                  <i className="fa fa-plus-square-o fa-2x"></i>
                 </div>
-              }
+                {
+                  showDelete &&
+                  <div className="vbox pl-detail-delete-song" onClick={this.toggleSongOptModal}>
+                    <i className="fa fa-minus-square-o fa-2x"></i>
+                  </div>
+                }
+              </div>
             </div>
           </div>
 
