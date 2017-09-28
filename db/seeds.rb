@@ -132,7 +132,7 @@ random_users.each do |r_user|
     n_playlists.times do
       n_followers = prng.rand(6)
       n_songs = prng.rand(4)
-      random_pl = Playlist.create(name: Faker::Hipster.words(3).join(" ").capitalize, author_id: r_user.id)
+      random_pl = Playlist.create(name: Faker::Hipster.words(2).join(" ").capitalize, author_id: r_user.id)
 
       n_followers.times do
         follower_user = random_users[prng.rand(random_users.length)]
