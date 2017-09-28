@@ -6,17 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 ############################################################
 ############### User seed creation #########################
 ############################################################
 User.destroy_all
+PlaylistFollowship.destroy_all
+PlaylistSong.destroy_all
 aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/aalfarho_avatar.jpg")
-guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/guest_avatar.png")
+guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: Faker::Avatar.image('guest'))
 teslium = User.create(username: 'teslium', email:'teslium@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
 
-5.times do |idx|
-  User.create(username: "teslium#{idx}", email:"teslium#{idx}@example.com", password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
+random_users = [guest]
+25.times do
+  name = Faker::Name.first_name
+  password = "password"
+  img_url = Faker::Avatar.image(name)
+  email = Faker::Internet.email
+  user = User.create(username: name, password: password, img_url: img_url, email: email);
+  random_users << user
 end
 
 
@@ -35,6 +42,12 @@ Friendship.create(user_id: guest.id, friend_id: teslium.id)
 
 ##aalfarho is friends only with guest
 Friendship.create(user_id: aalfarho.id, friend_id: guest.id)
+
+prng = Random.new
+
+random_users.each do |r_user|
+    Friendship.create(user_id: r_user.id, friend_id: random_users[prng.rand(random_users.length)].id)
+end
 
 ############################################################
 ############### Artist seed creation #######################
@@ -74,6 +87,7 @@ song_array = [
 ]
 
 
+all_songs = []
 Song.destroy_all
 ##Sommersault songs
 this_year = Song.create(title: 'This Year', length: 168, artist_id: beach_fossils.id, album_id: sommersault.id, file_path: song_array[0])
@@ -92,6 +106,7 @@ valentine = Song.create(title: 'Valentine', length: 197, artist_id: diiv.id, alb
 doused = Song.create(title: 'Doused', length: 222, artist_id: diiv.id, album_id: oshin.id, file_path: song_array[7])
 druun = Song.create(title: '(Druun)', length: 127, artist_id: diiv.id, album_id: oshin.id, file_path: song_array[8])
 
+all_songs += [this_year] + [sugar] + [saint_ivy] + [clash_the] + [sleep_apnea]+ [yr_not_far] + [valentine] + [doused] + [druun]
 
 ############################################################
 ################ Playlist seed creation ####################
@@ -108,11 +123,39 @@ Playlist.create(name: 'Empty', author_id: guest.id)
 
 #teslium playlist
 alterntive_current = Playlist.create(name: 'Alternative Current', author_id: teslium.id)
+
+## Random generated playlists
+random_playlists = []
+
+random_users.each do |r_user|
+    n_playlists = prng.rand(5)
+    n_playlists.times do
+      n_followers = prng.rand(6)
+      n_songs = prng.rand(4)
+      random_pl = Playlist.create(name: Faker::Hipster.words(3).join(" ").capitalize, author_id: r_user.id)
+
+      n_followers.times do
+        follower_user = random_users[prng.rand(random_users.length)]
+        next if r_user.id == follower_user.id
+        PlaylistFollowship.create(playlist_id: random_pl.id, user_id: follower_user.id)
+      end
+
+      ##add songs to playlists
+      all_songs.sample(n_songs).each do |song|
+        PlaylistSong.create(playlist_id: random_pl.id, song_id: song.id)
+      end
+
+      random_playlists << random_pl
+    end
+
+end
+
+
 ############################################################
 ################ Playlist-follow seed creation #############
 ############################################################
 ##Guest follows 2 of aalfarho's playlists and teslium
-PlaylistFollowship.destroy_all
+
 PlaylistFollowship.create(playlist_id: this_is_diiv.id, user_id: guest.id)
 PlaylistFollowship.create(playlist_id: this_is_beach_fossils.id, user_id: guest.id)
 PlaylistFollowship.create(playlist_id: alterntive_current.id, user_id: guest.id)
@@ -124,7 +167,6 @@ PlaylistFollowship.create(playlist_id: all_indie.id, user_id: aalfarho.id)
 ############################################################
 ################ Playlist-song seed creation ###############
 ############################################################
-PlaylistSong.destroy_all
 diiv.songs.each_with_index do |song, idx|
   if idx.odd?
     PlaylistSong.create(playlist_id: this_is_diiv.id, song_id: song.id)
