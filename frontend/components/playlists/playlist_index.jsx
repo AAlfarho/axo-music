@@ -69,7 +69,7 @@ export default class PlaylistIndex extends React.Component{
         <div className="hbox collection-playlist-container">
           {
             this.props.playlists.map(playlist => (
-              <div className="playlist-media-info-item" key={playlist.id}>
+              <div className="playlist-media-info-item">
                 <MediaInfoContainer key={`med-inf-${playlist.id}`} collection={playlist}/>
             </div>
             ))

@@ -13,14 +13,14 @@ User.destroy_all
 PlaylistFollowship.destroy_all
 PlaylistSong.destroy_all
 aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/aalfarho_avatar.jpg")
-guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: Faker::Avatar.image('guest'))
+guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: Faker::Avatar.image('guest',"180x180", "bmp", "set3"))
 teslium = User.create(username: 'teslium', email:'teslium@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
 
 random_users = [guest]
 25.times do
   name = Faker::Name.first_name
   password = "password"
-  img_url = Faker::Avatar.image(name)
+  img_url = Faker::Avatar.image(name,"180x180", "bmp", "set3")
   email = Faker::Internet.email
   user = User.create(username: name, password: password, img_url: img_url, email: email);
   random_users << user
