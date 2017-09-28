@@ -20,10 +20,13 @@
 
 .tab-title-item{
   justify-content: center;
+  cursor: pointer;
 }
 
 .react-tabs__tab--selected {
   color: #1db954;
+    border-bottom: 2px solid #959393;
+    border-radius: 5px;
 }
 
 .songs-result-tab{
