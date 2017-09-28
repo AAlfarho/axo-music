@@ -266,8 +266,10 @@ export default class MediaPlayer extends React.Component {
 
             <div className="vbox media-player-control-flex-container">
               <div className="hbox media-player-playback-controls">
-                <i onClick={this.prevSong()} className="fa fa-step-backward fa-2x strong" ></i>
-                <div onClick={this.playPause()}>
+                <div className="media-player-control">
+                  <i onClick={this.prevSong()} className="fa fa-step-backward fa-2x strong" ></i>
+                </div>
+                <div className="media-player-control" onClick={this.playPause()}>
                   {
                     playing ?
                     <i className="fa fa-pause fa-2x strong" ></i>
@@ -275,7 +277,9 @@ export default class MediaPlayer extends React.Component {
                     <i className="fa fa-play fa-2x strong" ></i>
                   }
                 </div>
-                <i onClick={this.nextSong()} className="fa fa-step-forward fa-2x strong" ></i>
+                <div className="media-player-control">
+                  <i onClick={this.nextSong()} className="fa fa-step-forward fa-2x strong" ></i>
+                </div>
               </div>
 
               <div className="hbox media-player-progress">
@@ -285,7 +289,7 @@ export default class MediaPlayer extends React.Component {
 
                 {
                   false &&
-                  <input
+                  <input className="media-player-control"
                     type='range' min={0} max={1} step='any'
                     value={played}
                     onMouseDown={this.onSeekMouseDown()}
@@ -302,7 +306,7 @@ export default class MediaPlayer extends React.Component {
               <div className="volume-media-icon" onClick={this.toggleMuted()}>
                 {volumeIcon}
               </div>
-              <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume()} />
+              <input className="volume-media-icon" type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume()} />
             </div>
           </div>
 

@@ -15,6 +15,7 @@
 .thumb-info-image-container img{
   width: 80px;
   height: 80px;
+  cursor: default;
 }
 
 .thumb-song-details{
@@ -72,4 +73,9 @@
 .volume-media-icon {
   align-self: center;
   margin-right: 15px;
+  cursor: pointer;
+}
+
+.media-player-control{
+  cursor: pointer;;
 }

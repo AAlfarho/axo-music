@@ -50,6 +50,10 @@
   color: red;
 }
 
+.pl-detail-delete-song, .pl-detail-add-song {
+  cursor: pointer;
+}
+
 .pl-detail-delete-song:hover{
   color: #8c2020;
 }
