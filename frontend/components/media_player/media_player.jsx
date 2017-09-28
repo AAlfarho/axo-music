@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import Duration from './duration';
 import ThumbDisplayContainer from '../media_info/thumb_display_container';
 export default class MediaPlayer extends React.Component {
   constructor(props){
