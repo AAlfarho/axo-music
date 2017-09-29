@@ -19,7 +19,8 @@ The project was designed and implemented from scratch over a 10 day time-frame. 
 
   ![playlist-crud](https://raw.githubusercontent.com/AAlfarho/axo-music/master/readme/pl-crud.gif)
 
- ### Continuous media playback
+ ## Continuous media playback
+
  The heart of any media application is they playback of its resources without disruption. To achieve such goal a slice of the application state was designed for this sole purpose.
  By clicking on the playlist image, the media player will start playing all of the songs from the clicked playlist.
 
@@ -80,24 +81,25 @@ Having this slice, will allow future enhancements to reproduce not only **playli
  ![pl-detail](https://raw.githubusercontent.com/AAlfarho/axo-music/master/readme/search-songs-res.png)
 
  By modularizing the application and separating the concerns properly, we are able to reuse a *Redux* managed component in an *_independent_* component such as the Search.
- Further, this same component could be re-used to display any other type of collections (yet to be impoemented) such as:
+ Further, this same component could be re-used to display any other type of collections (yet to be implemented) such as:
   + ALBUM_COLLECTION : all songs from an album.
   + RADIO_COLLECTION : all songs included in a radio.
   + ARTIST_COLLECTION : all songs from a specific artist.
 
 
-  ### Search fire up event
+  ## Search fire up event
 
-  For this application, we should not fire up search events every single time the user inputs a new value in our search, we should wait until the user has finished typing and then fire up our search, this is overall a better  approach for our application performance, keeping it simple and don't requesting information when we don't need it.
+  For this application, we should not fire up search events every single time the user inputs a new value in our search, this **WILL NOT SCALE**, we should wait until the user has finished typing and then fire up our search, this is not only a better  approach for our application performance, fewer requests equals less **cost** for our application.
 
-  To accomplish the above a simple line of 'lodash' is required, **_debounce_** enables us to group sequential calls into a single call, which will be executed after the specified delay time.
+  To accomplish the above, a single, yet *incredibly powerful* line of 'lodash' is required;
+   **_debounce_** enables us to group sequential calls into a single call, which will be executed after the specified delay time.
 
    ```javascript
 
     document.getElementById('search-input').addEventListener('keyup', _.debounce(this.handleSearch, 500) )
    ```
 
- ### Song ordering
+ ## Song ordering
 
  The order in which a song is inserted in a playlist is extremely important, retrieving them in the same order in which they were inserted into the playlist was a matter of updating our *Model Relationship* in our backend.
 
@@ -117,7 +119,7 @@ Having this slice, will allow future enhancements to reproduce not only **playli
 ## Improvements
 
 - [ ] Click on a song to play it.
-- [ ] Show album's / artist's song.
+- [ ] Show album's / artist's song.g
 - [ ] Recently played collections display on nav bar.
 - [ ] User feed, user followship is already handled, the summary of the user's friends is yet to be implemented.
 - [ ] Allow user to use the progress bar and jump to a specific section of a song, implementation for such feature is available under an input range tag. Overlap it to the current progress element.
