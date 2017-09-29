@@ -26,9 +26,14 @@ class SessionForm extends React.Component {
       //if different url, clear the errors
       this.props.receiveErrors([]);
     }
+    clearTimeout(this.clearInterval);
   }
 
-  handleSubmit(event){
+    componentWillUnmount(){
+      clearTimeout(this.clearInterval);
+    }
+
+    handleSubmit(event){
     event.preventDefault();
     const user = this.state;
     this.props.formAction(user);
@@ -41,7 +46,22 @@ class SessionForm extends React.Component {
       username: 'guest',
       password: 'password'
     };
-    this.props.demoLogin(demoUser);
+    this.setState({
+        username: '',
+        password: ''
+    });
+    let username = Array.from('guest');
+    let password = Array.from('password');
+    this.clearInterval = setInterval(() => {
+        if (username.length) {
+            this.setState({ username: (this.state.username + username.shift())});
+        } else if (password.length) {
+            this.setState({ password: (this.state.password + password.shift())});
+        } else {
+            clearTimeout(this.clearInterval);
+            this.props.demoLogin(demoUser);
+        }
+    },100);
 
   }
 
@@ -85,7 +105,7 @@ class SessionForm extends React.Component {
                 <div className="session-container">
                   {this.renderErrors()}
                   <form className="session-form"onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder='Username' value={username}
+                    <input type="text" id="username-input" placeholder='Username' value={username}
                       onChange={this.handleChange('username')}/>
                     {
                       signupFlow &&
