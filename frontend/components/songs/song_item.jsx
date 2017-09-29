@@ -3,15 +3,8 @@ import {PLAYLIST_COLLECTION} from '../../util/constants';
 import Modal from 'react-modal';
 import AddToPlaylistCont from '../playlists/add_to_playlist_container';
 import {formPLaylistModal}  from '../modal/modal_styles';
-// Taken from
-//https://stackoverflow.com/questions/11792726/turn-seconds-into-hms-format-using-jquery
-function secondsTimeSpanToHMS(s) {
-    var h = Math.floor(s/3600); //Get whole hours
-    s -= h*3600;
-    var m = Math.floor(s/60); //Get remaining minutes
-    s -= m*60;
-    return (m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on
-}
+import { formatSeconds } from '../../util/second_format_util';
+
 export default class SongItem extends React.Component{
   constructor(props){
     super(props);
@@ -126,7 +119,7 @@ export default class SongItem extends React.Component{
             </div>
             <div className="hbox song-right-details">
               <div className="vbox duration-detail">
-                {secondsTimeSpanToHMS(song.length)}
+                {formatSeconds(song.length)}
               </div>
               <div className="hbox menu-options">
                 <div className="vbox pl-detail-add-song" onClick={this.toggleAddSongModal}>
