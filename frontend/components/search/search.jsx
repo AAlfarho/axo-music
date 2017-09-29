@@ -64,12 +64,8 @@ export default class Search extends React.Component {
       });
     }
   }
-  testfunction(){
-    console.log("Im going to run!", this.state.query)
-  }
   render(){
     const {users, songs} = this.state.results;
-    //          <button onClick={this.handleSearch}>temp search</button>
     return(
       <div className="vbox search-root-flex-container">
         <div className="vbox search-input-flex-container">

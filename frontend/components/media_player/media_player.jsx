@@ -80,9 +80,6 @@ export default class MediaPlayer extends React.Component {
       const collectionToPlay = playback.collection;
       if(collectionToPlay){
         const songsToPlay = collectionToPlay.song_ids;
-        console.log(this.props);
-        console.log(this.state);
-        console.log(this.state.playingIndex + 1 >= songsToPlay.length);
         if(this.state.playingIndex + 1 >= songsToPlay.length){
           this.setState({
             playing: false,
@@ -217,7 +214,7 @@ export default class MediaPlayer extends React.Component {
     } else if(volume < .5){
       volumeIcon = <i className="fa fa-volume-down"></i> ;
     } else {
-      volumeIcon = volumeIcon = <i className="fa fa-volume-up"></i> ;
+      volumeIcon = <i className="fa fa-volume-up"></i> ;
     }
 
 
@@ -226,12 +223,6 @@ export default class MediaPlayer extends React.Component {
       song = this.props.songs[collection.song_ids[this.state.playingIndex]];
     }
 
-    // console.log("url", url);
-    // console.log("playing", playing);
-    // console.log("duration", format(duration));
-    // console.log("elapsed", format(duration * played));
-    // console.log("remaining", format(duration * (1 - played)));
-    const SEPARATOR = ' · ';
     return (
       <div className='media-player-container'>
           <div className='player-wrapper'>
@@ -246,12 +237,8 @@ export default class MediaPlayer extends React.Component {
               playbackRate={playbackRate}
               volume={volume}
               muted={muted}
-              onReady={() => console.log('onReady')}
-              onStart={() => console.log('onStart')}
               onPlay={this.onPlay()}
               onPause={this.onPause()}
-              onBuffer={() => console.log('onBuffer')}
-              onSeek={e => console.log('onSeek', e)}
               onEnded={this.nextSong()}
               onError={e => console.log('onError', e)}
               onProgress={this.onProgress()}
