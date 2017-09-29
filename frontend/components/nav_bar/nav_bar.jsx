@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LineSeparator from '../util/line_separator';
 import CurrentUser from '../user/current_user';
+import About from '../about/about';
 
 export default class NavBar extends React.Component {
   constructor(props){
@@ -48,6 +49,11 @@ export default class NavBar extends React.Component {
               </div>
            </div>
 
+        </div>
+
+        <LineSeparator />
+        <div className="vbox about-me">
+              <About />
         </div>
 
         <LineSeparator />
