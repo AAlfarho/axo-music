@@ -89,7 +89,7 @@ export default class PlaylistIndex extends React.Component{
           onAfterOpen = {this.toggleNewPlaylistModal}
           onRequestClose = {this.toggleNewPlaylistModal}
           style={formPLaylistModal}
-          contentLabel="new-playlist"
+          contentLabel="new-playlist-modal"
           >
           <NewPlaylist createPlaylist={this.props.createPlaylist}/>
         </Modal>

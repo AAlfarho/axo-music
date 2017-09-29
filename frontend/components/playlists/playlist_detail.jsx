@@ -132,6 +132,7 @@ export default class PlaylistIndex extends React.Component{
         onAfterOpen = {this.toggleDeletePlaylistModal}
         onRequestClose = {this.toggleDeletePlaylistModal}
         style={formPLaylistModal}
+        contentLabel="delete-song-from-pl"
         >
         <DeletePlaylist history={this.props.history} deletePlaylist={this.props.deletePlaylist} playlist={this.props.playlist}/>
       </Modal>
