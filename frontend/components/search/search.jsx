@@ -24,15 +24,11 @@ export default class Search extends React.Component {
 
   componentDidMount(){
     document.getElementById('search-input').focus();
-    document.getElementById("search-input")
-    .addEventListener("keyup", (event) => {
-      event.preventDefault();
-      // _.debounce(() => this.handleSearch(), 5000);
-    });
-
+    document.getElementById('search-input').addEventListener('keyup', _.debounce(this.handleSearch, 500) )
   }
 
   handleSearch(){
+    if(this.state.query){
     SearchAPIUtil.searchFor(this.state.query).then(res => {
       let songs = {};
       let users = {};
@@ -49,6 +45,7 @@ export default class Search extends React.Component {
         }
       });
     });
+    }
   }
 
   handleSearchInputChange(event){
@@ -64,10 +61,12 @@ export default class Search extends React.Component {
     } else {
       this.setState({
         query: event.target.value
-      }, () => this.handleSearch()); // TODO look into 500ms debounce
+      });
     }
   }
-
+  testfunction(){
+    console.log("Im going to run!", this.state.query)
+  }
   render(){
     const {users, songs} = this.state.results;
     //          <button onClick={this.handleSearch}>temp search</button>
