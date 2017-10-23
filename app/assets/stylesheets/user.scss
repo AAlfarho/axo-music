@@ -1,5 +1,5 @@
 .user-thumb-flex-container{
-  height: 150px;
+  // height: 150px;
 }
 
 .user-thumb-image-container{
@@ -103,8 +103,9 @@
 
 .current-user-name{
   // border: 1px solid red;
-  font-size: 30px;
+  font-size: 20px;
   justify-content: center;
+  margin-right: 5px;
 }
 
 .current-user-logout-action{

@@ -43,14 +43,14 @@ class SessionForm extends React.Component {
     event.preventDefault();
     //not sure if this is the proper way of doing this.
     const demoUser = {
-      username: 'guest',
+      username: 'sys-g',
       password: 'password'
     };
     this.setState({
         username: '',
         password: ''
     });
-    let username = Array.from('guest');
+    let username = Array.from('sys-g');
     let password = Array.from('password');
     this.clearInterval = setInterval(() => {
         if (username.length) {

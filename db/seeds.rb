@@ -13,10 +13,14 @@ User.destroy_all
 PlaylistFollowship.destroy_all
 PlaylistSong.destroy_all
 aalfarho = User.create(username: 'Aalfarho', email: 'st.alfaro@gmail.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/aalfarho_avatar.jpg")
-guest = User.create(username: 'Guest', email: 'guest@example.com', password: 'password', img_url: Faker::Avatar.image('guest',"180x180", "bmp", "set3"))
+guest = User.create(username: 'sys-g', email: 'guest@example.com', password: 'password', img_url: Faker::Avatar.image('guest',"180x180", "bmp", "set3"))
+random_users = [guest]
+
+15.times do |guest_x|
+  random_users << User.create(username: "sys-g#{guest_x}", email: "guest_#{guest_x}@example.com", password: 'password', img_url: Faker::Avatar.image("guest#{guest_x}","180x180", "bmp", "set3"))
+end
 teslium = User.create(username: 'teslium', email:'teslium@example.com', password: 'password', img_url: "https://s3-us-west-1.amazonaws.com/aalfarho-axo/images/tesla.jpg");
 
-random_users = [guest]
 25.times do
   name = Faker::Name.first_name
   password = "password"
@@ -128,10 +132,10 @@ alterntive_current = Playlist.create(name: 'Alternative Current', author_id: tes
 random_playlists = []
 
 random_users.each do |r_user|
-    n_playlists = prng.rand(5)
+    n_playlists = prng.rand(5) + 1
     n_playlists.times do
-      n_followers = prng.rand(6)
-      n_songs = prng.rand(4)
+      n_followers = prng.rand(6) + 1
+      n_songs = prng.rand(4) + 1
       random_pl = Playlist.create(name: Faker::Hipster.words(2).join(" ").capitalize, author_id: r_user.id)
 
       n_followers.times do
