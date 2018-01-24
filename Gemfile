@@ -31,7 +31,6 @@ gem 'faker'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem "figaro"
-gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem "aws-sdk", '< 2.0'
 
 # Use Capistrano for deployment
