@@ -6,11 +6,11 @@ RSpec.describe User, type: :model do
     it 'does not save passwords to the database' do
       User.create!({
           username: 'test',
-          password: 'nunyabusiness',
+          password: 'password',
           email: 'email@email.com'
       })
       user = User.find_by_username('test')
-      expect(user.password).not_to be('nunyabusiness')
+      expect(user.password).not_to be('password')
     end
 
     # Add more tests here!
